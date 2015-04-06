@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+]>
+<book>
+	<xi:include href="Book_Info.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Preface.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Foreword.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Introduction_to_Free_and_Open_Source_Software.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="The_Lay_of_the_Land.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Getting_the_Code.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Building_the_Code.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Debugging_the_Code.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Fixing_the_Code.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Explaining_the_Code.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Release_Early_Release_Often.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Instructor_Guide.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Glossary_of_Terms.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Colophon.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Revision_History.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+	<index />
+</book>
+

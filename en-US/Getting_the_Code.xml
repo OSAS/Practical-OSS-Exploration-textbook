@@ -1,0 +1,319 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+]>
+<chapter>
+  <chapterinfo>
+    <author>
+      <firstname>Greg</firstname>
+      <surname>DeKoenigsberg</surname>
+      <affiliation>
+	<orgname>Red Hat</orgname>
+	<orgdiv>Community Architecture</orgdiv>
+      </affiliation>
+      <email>gdk@redhat.com</email>
+    </author>   
+    <author>
+      <firstname>Mel</firstname>
+      <surname>Chua</surname>
+      <affiliation>
+	<orgname>Red Hat</orgname>
+	<orgdiv>Community Architecture</orgdiv>
+      </affiliation>
+      <email>mel@redhat.com</email>
+    </author>
+  </chapterinfo> 
+  <title>Introduction </title>
+  <para>This is a conversation that you never want to hear. </para>
+        <para>"Oh no! The frobnitz is broken!" </para>
+        <para>"But it was working last week." </para>
+        <para>"I don't know what happened - was it the changes I made to the gorblewhonker?" </para>
+        <para>"Wait, I was putting that function in the gorblewhonker. I told you after class on Thursday, remember?" </para>
+        <para>"Shoot. Do you have last week's version with the working frobnitz? What's the difference?" </para>
+        <para>"Maybe. I don't know. Does this mean we have to redo all the improvements we've made to the blooglebox since then?" </para>
+        <para>"Argh." </para>
+        <para>There are tools that allow you to avoid these kinds of conversations. </para>
+        <para>Have you ever created a folder that looked something like this? </para>
+        <programlisting>mycode-1.pymycode-2.pymycode-2-with-rachel's-changes.pymycode-working.pymycode-LATEST.py</programlisting>
+        <para>If so, you have used version control. According to Wikipedia <ulink url="http://en.wikipedia.org/wiki/Revision_control"> version control</ulink> "is the management of changes to documents, programs, and other information stored as computer files."  </para><para>A system that manages version control for software development is called a <emphasis>source code management system</emphasis>, or an <emphasis>SCM</emphasis> for short. In this chapter, you will learn the basic use of source control management.</para>
+      </section><section>
+        <sectioninfo>
+          <title>A Brief Introduction to FOSS Source Control Management Tools </title>
+        </sectioninfo><para>The FOSS world has developed many excellent SCMs to choose from.  Each have their strengths and weaknesses, and choosing which SCM to use for a new project is always a popular subject for debate. </para>
+        <para>You may want to start your own project someday, and you will have to choose an SCM.  Right now, though, you will be working with existing projects, which means the SCM has been chosen for you.  The following five SCMs are very popular, and you're likely to see them often: </para>
+        <itemizedlist>
+          <listitem>
+            <para> Subversion (svn) </para>
+          </listitem><listitem>
+            <para> Concurrent Version System (cvs) </para>
+          </listitem><listitem>
+            <para> Mercurial (hg) </para>
+          </listitem><listitem>
+            <para> Git (git) </para>
+          </listitem><listitem>
+            <para> Bazaar (bzr) </para>
+          </listitem>
+        </itemizedlist><para>Eventually you may use all of these SCMs, or a different SCM entirely.  Each SCM has some unique characteristics -- but most basic version control concepts are common to all SCMs. </para>
+        <para>Since these concepts are new, the focus will be on learning one SCM: Subversion.  </para>
+        <section>
+          <sectioninfo>
+            <title>Exercise - Install Subversion on Your System </title>
+          </sectioninfo><para>Install Subversion on your system.  Subversion clients exists for all platforms; search the Internet for instructions.  Ask your classmates, or ask on IRC, if you need help. </para>
+        </section>
+      </section><section>
+        <sectioninfo>
+          <title>Getting Help With Subversion </title>
+        </sectioninfo><para>
+          <emphasis>(Adapted from <ulink url="http://svnbook.red-bean.com/en/1.5/svn.tour.help.html"> Version Control with Subversion</ulink> under <ulink url="http://creativecommons.org/licenses/by/2.0/"> Creative Commons Attribution License v2.0</ulink>.)</emphasis>
+        </para><para>Before reading on, here is the most important command you ever need when using Subversion: <programlisting format="linespecific">svn help</programlisting>. The Subversion command-line client is self-documenting -- at any time, a quick <programlisting format="linespecific">svn help SUBCOMMAND</programlisting> describes the syntax, options, and behavior of the subcommand. </para><programlisting>svn help updateupdate (up): Bring changes from the repository into the working copy.usage: update [PATH...]  If no revision is given, bring working copy up-to-date with HEAD rev.  Else synchronize working copy to revision given by -r.  For each updated item a line will start with a character reporting the  action taken.  These characters have the following meaning:...</programlisting>
+      </section><section>
+        <sectioninfo>
+          <title>Getting Started: checkout </title>
+        </sectioninfo><para>
+          <emphasis>(Adapted from <ulink url="http://svnbook.red-bean.com/en/1.5/svn.tour.initial.html"> Version Control with Subversion</ulink> under <ulink url="http://creativecommons.org/licenses/by/2.0/"> Creative Commons Attribution License v2.0</ulink>.)</emphasis>
+        </para><para>Most of the time, you start using a Subversion repository by doing a checkout of your project. Checking out a repository creates a <emphasis>working copy</emphasis> of it on your local machine. This copy contains the HEAD (latest revision) of the Subversion repository that you specify on the command line:</para><programlisting>$ svn checkout http://svn.collab.net/repos/svn/trunkA    trunk/Makefile.inA    trunk/ac-helpersA    trunk/ac-helpers/install.shA    trunk/ac-helpers/install-shA    trunk/build.conf&#8230;Checked out revision 8810.</programlisting>
+        <para>Although the above example checks out the trunk directory, you can just as easily check out any deep subdirectory of a repository by specifying the subdirectory in the checkout URL: </para>
+        <programlisting>$ svn checkout \      http://svn.collab.net/repos/svn/trunk/subversion/tests/cmdline/A    cmdline/revert_tests.pyA    cmdline/diff_tests.pyA    cmdline/autoprop_tests.pyA    cmdline/xmltestsA    cmdline/xmltests/svn-test.sh&#8230;Checked out revision 8810.</programlisting>
+        <para>Since Subversion uses a <emphasis>copy-modify-merge</emphasis> model, you can start right in making changes to the files and directories in your working copy. Your working copy is just like any other collection of files and directories on your system. You can edit and change them, move them around, you can even delete the entire working copy and forget about it.</para><para>While you can certainly check out a working copy with the URL of the repository as the only argument, you can also specify a directory after your repository URL. This places your working copy in the new directory that you name. For example: </para>
+        <programlisting>$ svn checkout http://svn.collab.net/repos/svn/trunk subvA    subv/Makefile.inA    subv/ac-helpersA    subv/ac-helpers/install.shA    subv/ac-helpers/install-shA    subv/build.conf&#8230;Checked out revision 8810.</programlisting>
+        <para>That places your working copy in a directory named <programlisting format="linespecific">subv</programlisting> instead of a directory named <programlisting format="linespecific">trunk</programlisting> as we did previously. The directory <programlisting format="linespecific">subv</programlisting> is created if it doesn't already exist. </para><section>
+          <sectioninfo>
+            <title>Exercise - Initial Checkout of the Sample Codebase </title>
+          </sectioninfo><para>Create a local checkout of the sample codebase in the <ulink url="http://svn.teachingopensource.org/repos/tos"> TOS repository</ulink>. </para>
+        </section>
+      </section><section>
+        <sectioninfo>
+          <title>The Basic Subversion Work Cycle </title>
+        </sectioninfo><para>
+          <emphasis>(Adapted from <ulink url="http://svnbook.red-bean.com/en/1.5/svn.tour.cycle.html"> Version Control with Subversion</ulink> under <ulink url="http://creativecommons.org/licenses/by/2.0/"> Creative Commons Attribution License v2.0</ulink>.)</emphasis>
+        </para><para>Subversion has numerous features, options, and bells and whistles, but on a day-to-day basis, odds are that you only use a few of them. In this section we run through the most common things you might find yourself doing with Subversion in the course of a day's work. </para>
+        <para>The typical work cycle looks like this: </para>
+        <para>
+          <emphasis>Update your working copy</emphasis>
+          <itemizedlist>
+            <listitem>
+              <para>
+                <programlisting format="linespecific">svn update</programlisting>
+              </para>
+            </listitem>
+          </itemizedlist>
+        </para><para>
+          <emphasis>Make changes</emphasis>
+          <itemizedlist>
+            <listitem>
+              <para>
+                <programlisting format="linespecific">svn add</programlisting>
+              </para>
+            </listitem><listitem>
+              <para>
+                <programlisting format="linespecific">svn delete</programlisting>
+              </para>
+            </listitem><listitem>
+              <para>
+                <programlisting format="linespecific">svn copy</programlisting>
+              </para>
+            </listitem><listitem>
+              <para>
+                <programlisting format="linespecific">svn move</programlisting>
+              </para>
+            </listitem>
+          </itemizedlist>
+        </para><para>
+          <emphasis>Examine your changes</emphasis>
+          <itemizedlist>
+            <listitem>
+              <para>
+                <programlisting format="linespecific">svn status</programlisting>
+              </para>
+            </listitem><listitem>
+              <para>
+                <programlisting format="linespecific">svn diff</programlisting>
+              </para>
+            </listitem>
+          </itemizedlist>
+        </para><para>
+          <emphasis>Possibly undo some changes</emphasis>
+          <itemizedlist>
+            <listitem>
+              <para>
+                <programlisting format="linespecific">svn revert</programlisting>
+              </para>
+            </listitem>
+          </itemizedlist>
+        </para><para>
+          <emphasis>Resolve Conflicts (Merge Others' Changes)</emphasis>
+          <itemizedlist>
+            <listitem>
+              <para>
+                <programlisting format="linespecific">svn update</programlisting>
+              </para>
+            </listitem><listitem>
+              <para>
+                <programlisting format="linespecific">svn resolved</programlisting>
+              </para>
+            </listitem>
+          </itemizedlist>
+        </para><para>
+          <emphasis>Commit your changes</emphasis>
+          <itemizedlist>
+            <listitem>
+              <para>
+                <programlisting format="linespecific">svn commit</programlisting>
+              </para>
+            </listitem>
+          </itemizedlist>
+        </para><section>
+          <sectioninfo>
+            <title>Update Your Working Copy </title>
+          </sectioninfo><para>When working on a project with a team, you want to update your working copy to receive any changes made since your last update by other developers on the project. Use <programlisting format="linespecific">svn update</programlisting> to bring your working copy into sync with the latest revision in the repository. </para><programlisting>$ svn updateU  foo.cU  bar.cUpdated to revision 2.</programlisting>
+          <para>In this case, someone else checked in modifications to both <programlisting format="linespecific">foo.c</programlisting> and <programlisting format="linespecific">bar.c</programlisting> since the last time you updated, and Subversion has updated your working copy to include those changes. </para><para>When the server sends changes to your working copy via <programlisting format="linespecific">svn update</programlisting>, a letter code is displayed next to each item to let you know what actions Subversion performed to bring your working copy up-to-date. We cover the meaning of these letters shortly. </para><section>
+            <sectioninfo>
+              <title>Exercise - Get Updates From the Sample Repository </title>
+            </sectioninfo><para>Update your working copy of the TOS repo.  Has anything changed? </para>
+          </section>
+        </section>
+      </section><section>
+        <sectioninfo>
+          <title>Make Changes to Your Working Copy </title>
+        </sectioninfo><para>Now you can get to work and make changes in your working copy. It's usually most convenient to decide on a discrete change (or set of changes) to make, such as writing a new feature, fixing a bug, etc. The Subversion commands that you use here are <programlisting format="linespecific">svn add</programlisting>, <programlisting format="linespecific">svn delete</programlisting>, <programlisting format="linespecific">svn copy</programlisting>, <programlisting format="linespecific">svn move</programlisting>, and <programlisting format="linespecific">svn mkdir</programlisting>. However, if you are merely editing files that are already in Subversion, you may not need to use any of these commands until you commit. </para><para>There are two kinds of changes you can make to your working copy: file changes and tree changes. You don't need to tell Subversion that you intend to change a file; just make your changes using your text editor, word processor, graphics program, or whatever tool you would normally use. Subversion automatically detects which files have been changed, and in addition handles binary files just as easily as it handles text files -- and just as efficiently too. For tree changes, you can ask Subversion to <emphasis>mark</emphasis> files and directories for scheduled removal, addition, copying, or moving. These changes may take place immediately in your working copy, but no additions or removals happen in the repository until you commit them.</para><para>Here is an overview of the five Subversion subcommands that you'll use most often to make tree changes. </para>
+        <para>
+          <programlisting format="linespecific">svn add foo</programlisting>
+        </para><para>Schedule file, directory, or symbolic link <programlisting format="linespecific">foo</programlisting> to be added to the repository. When you next commit, <programlisting format="linespecific">foo</programlisting> becomes a child of its parent directory. Note that if <programlisting format="linespecific">foo</programlisting> is a directory, everything underneath <programlisting format="linespecific">foo</programlisting> is scheduled for addition. If you only want to add <programlisting format="linespecific">foo</programlisting> itself, pass the <programlisting format="linespecific">--non-recursive</programlisting> (<programlisting format="linespecific">-N</programlisting>) option. </para><para>
+          <programlisting format="linespecific">svn delete foo</programlisting>
+        </para><para>Schedule file, directory, or symbolic link <programlisting format="linespecific">foo</programlisting> to be deleted from the repository. If <programlisting format="linespecific">foo</programlisting> is a file or link, it is immediately deleted from your working copy. If <programlisting format="linespecific">foo</programlisting> is a directory, it is not deleted, but Subversion schedules it for deletion. When you commit your changes, <programlisting format="linespecific">foo</programlisting> is entirely removed from your working copy and the repository. </para><para>
+          <programlisting format="linespecific">svn copy foo bar</programlisting>
+        </para><para>Create a new item <programlisting format="linespecific">bar</programlisting> as a duplicate of <programlisting format="linespecific">foo</programlisting> and automatically schedule <programlisting format="linespecific">bar</programlisting> for addition. When <programlisting format="linespecific">bar</programlisting> is added to the repository on the next commit, its copy history is recorded (as having originally come from <programlisting format="linespecific">foo</programlisting>). The <programlisting format="linespecific">svn copy</programlisting> command does not create intermediate directories. </para><para>
+          <programlisting format="linespecific">svn move foo bar</programlisting>
+        </para><para>This command is exactly the same as running <programlisting format="linespecific">svn copy foo bar; svn delete foo</programlisting>. That is, <programlisting format="linespecific">bar</programlisting> is scheduled for addition as a copy of <programlisting format="linespecific">foo</programlisting>, and <programlisting format="linespecific">foo</programlisting> is scheduled for removal. The <programlisting format="linespecific">svn move</programlisting> command does not create intermediate directories. </para><para>
+          <programlisting format="linespecific">svn mkdir blort</programlisting>
+        </para><para>This command is exactly the same as running <programlisting format="linespecific">mkdir blort; svn add blort</programlisting>. That is, a new directory named <programlisting format="linespecific">blort</programlisting> is created and scheduled for addition. </para><section>
+          <sectioninfo>
+            <title>Exercise - Create a Biography File and Add It to the Local Repository </title>
+          </sectioninfo><para>Using other biography files as examples, create a biography file of yourself in the <programlisting format="linespecific">bio/</programlisting> directory and add it to your local repository.  Also add a link to that file in the <programlisting format="linespecific">index.html</programlisting> file in the root directory. </para>
+        </section>
+      </section><section>
+        <sectioninfo>
+          <title>Examine Your Changes </title>
+        </sectioninfo><para>Subversion has been optimized to help you with this task, and is able to do many things without communicating with the repository. In particular, your working copy contains a hidden cached <emphasis>pristine</emphasis> copy of each version controlled file within the <programlisting format="linespecific">.svn</programlisting> area. Because of this, Subversion can quickly show you how your working files have changed, or even allow you to undo your changes without contacting the repository.</para><para>
+          <programlisting format="linespecific">svn status</programlisting>
+        </para><para>To get an overview of your changes, use the <programlisting format="linespecific">svn status</programlisting> command. You may use <programlisting format="linespecific">svn status</programlisting> more than any other Subversion command. </para><para>If you run <programlisting format="linespecific">svn status</programlisting> at the top of your working copy with no arguments, it detects all file and tree changes you've made. Below are a few examples of the most common status codes that svn status can return. (Note that the text following # is not actually printed by svn status.) </para><programlisting>A       stuff/loot/bloo.h   # file is scheduled for additionC       stuff/loot/lump.c   # file has textual conflicts from an updateD       stuff/fish.c        # file is scheduled for deletionM       bar.c               # the content in bar.c has local modifications</programlisting>
+        <para>In this output format <programlisting format="linespecific">svn status</programlisting> prints six columns of characters, followed by several whitespace characters, followed by a file or directory name. The first column tells the status of a file or directory and/or its contents. The codes we listed are: </para><para>
+          <programlisting format="linespecific">A item</programlisting>
+        </para><para>The file, directory, or symbolic link item has been scheduled for addition into the repository. </para>
+        <para>
+          <programlisting format="linespecific">C item</programlisting>
+        </para><para>The file item is in a state of conflict. That is, changes received from the server during an update overlap with local changes that you have in your working copy. You must resolve this conflict before committing your changes to the repository. </para>
+        <para>
+          <programlisting format="linespecific">D item</programlisting>
+        </para><para>The file, directory, or symbolic link item has been scheduled for deletion from the repository. </para>
+        <para>
+          <programlisting format="linespecific">M item</programlisting>
+        </para><para>The contents of the file item have been modified. </para>
+        <para>If you pass a specific path to <programlisting format="linespecific">svn status</programlisting>, you get information about that item alone: </para><programlisting>$ svn status stuff/fish.cD      stuff/fish.c</programlisting>
+        <para>The <programlisting format="linespecific">svn status</programlisting> command also has a <programlisting format="linespecific">--verbose</programlisting> (<programlisting format="linespecific">-v</programlisting>) option, which shows you the status of every item in your working copy, even if it has not been changed: </para><programlisting>$ svn status -vM               44        23    sally     README                44        30    sally     INSTALLM               44        20    harry     bar.c                44        18    ira       stuff                44        35    harry     stuff/trout.cD               44        19    ira       stuff/fish.c                44        21    sally     stuff/thingsA                0         ?     ?        stuff/things/bloo.h                44        36    harry     stuff/things/gloo.c</programlisting>
+        <para>This is the <emphasis>long form</emphasis> output of <programlisting format="linespecific">svn status</programlisting>. The letters in the first column mean the same as before, but the second column shows the working-revision of the item. The third and fourth columns show the revision in which the item last changed, and who changed it.</para><para>None of the prior invocations to <programlisting format="linespecific">svn status</programlisting> contact the repository &#8212; instead, they compare the metadata in the <programlisting format="linespecific">.svn</programlisting> directory with the working copy. Finally, there is the <programlisting format="linespecific">--show-updates</programlisting> (<programlisting format="linespecific">-u</programlisting>) option, which contacts the repository and adds information about things that are out-of-date: </para><programlisting>$ svn status -u -vM      *        44        23    sally     READMEM               44        20    harry     bar.c       *        44        35    harry     stuff/trout.cD               44        19    ira       stuff/fish.cA                0         ?     ?        stuff/things/bloo.hStatus against revision:   46</programlisting>
+        <para>Notice the two asterisks: if you were to run <programlisting format="linespecific">svn update</programlisting> at this point, you would receive changes to <programlisting format="linespecific">README</programlisting> and <programlisting format="linespecific">trout.c</programlisting>. This tells you some very useful information -- you need to update and get the server changes on <programlisting format="linespecific">README</programlisting> before you commit, or the repository will reject your commit for being out-of-date. (More on this subject later.) </para><para>The <programlisting format="linespecific">svn status</programlisting> command can display much more information about the files and directories in your working copy than we've shown here &#8212; for an exhaustive description of <programlisting format="linespecific">svn status</programlisting> and its output, see <programlisting format="linespecific">svn status</programlisting>. </para><para>
+          <programlisting format="linespecific">svn diff</programlisting>
+        </para><para>Another way to examine your changes is with the <programlisting format="linespecific">svn diff</programlisting> command. You can find out exactly how you've modified things by running <programlisting format="linespecific">svn diff</programlisting> with no arguments, which prints out file changes in unified diff format: </para><programlisting>$ svn diffIndex: bar.c===================================================================--- bar.c	(revision 3)+++ bar.c	(working copy)@@ -1,7 +1,12 @@+#include &lt;sys/types.h&gt;+#include &lt;sys/stat.h&gt;+#include &lt;unistd.h&gt;++#include &lt;stdio.h&gt; int main(void) {-  printf("Sixty-four slices of American Cheese...\n");+  printf("Sixty-five slices of American Cheese...\n"); return 0; }Index: README===================================================================--- README	(revision 3)+++ README	(working copy)@@ -193,3 +193,4 @@+Note to self:  pick up laundry.Index: stuff/fish.c===================================================================--- stuff/fish.c	(revision 1)+++ stuff/fish.c	(working copy)-Welcome to the file known as 'fish'.-Information on fish will be here soon.Index: stuff/things/bloo.h===================================================================--- stuff/things/bloo.h	(revision 8)+++ stuff/things/bloo.h	(working copy)+Here is a new file to describe+things about bloo.</programlisting>
+        <para>The <programlisting format="linespecific">svn diff</programlisting> command produces this output by comparing your working files against the cached pristine copies within the <programlisting format="linespecific">.svn</programlisting> area. Files scheduled for addition are displayed as all added text, and files scheduled for deletion are displayed as all deleted text. </para><para>Output is displayed in unified diff format. That is, removed lines are prefaced with - and added lines are prefaced with +. The <programlisting format="linespecific">svn diff</programlisting> command also prints filename and offset information useful to the patch program, so you can generate <emphasis>patches</emphasis> by redirecting the diff output to a file:</para><para>
+          <programlisting format="linespecific">svn diff &gt; patchfile</programlisting>
+        </para><para>You could, for example, email the patch file to another developer for review or testing prior to commit. </para>
+        <para>Subversion uses its internal diff engine, which produces unified diff format, by default. If you want diff output in a different format, specify an external diff program using <programlisting format="linespecific">--diff-cmd</programlisting> and pass any flags you'd like to it using the <programlisting format="linespecific">--extensions</programlisting> (<programlisting format="linespecific">-x</programlisting>) option. For example, to see local differences in file <programlisting format="linespecific">foo.c</programlisting> in context output format while ignoring case differences, you might run <programlisting format="linespecific">svn diff --diff-cmd /usr/bin/diff --extensions '-i' foo.c</programlisting>. </para>
+      </section><section>
+        <sectioninfo>
+          <title>Undoing Working Changes </title>
+        </sectioninfo><para>Suppose while viewing the output of <programlisting format="linespecific">svn diff</programlisting> you determine that all the changes you made to a particular file are mistakes. Maybe you shouldn't have changed the file at all, or perhaps it would be easier to make different changes starting from scratch. </para><para>This is a perfect opportunity to use <programlisting format="linespecific">svn revert</programlisting>: </para><programlisting>$ svn revert READMEReverted 'README'</programlisting>
+        <para>Subversion reverts the file to its pre-modified state by overwriting it with the cached pristine copy from the <programlisting format="linespecific">.svn</programlisting> area. But also note that <programlisting format="linespecific">svn revert</programlisting> can undo any scheduled operations -- for example, you might decide that you don't want to add a new file after all: </para><programlisting>$ svn status foo?      foo$ svn add fooA         foo$ svn revert fooReverted 'foo'$ svn status foo?      foo</programlisting>
+        <para>Note: <programlisting format="linespecific">svn revert ITEM</programlisting> has exactly the same effect as deleting <programlisting format="linespecific">ITEM</programlisting> from your working copy and then running <programlisting format="linespecific">svn update -r BASE ITEM</programlisting>. However, if you're reverting a file, <programlisting format="linespecific">svn revert</programlisting> has one very noticeable difference -- it doesn't have to communicate with the repository to restore your file.  Which is very useful if you're working disconnected from the coffeeshop. </para><para>Or perhaps you mistakenly removed a file from version control: </para>
+        <programlisting>$ svn status README       README$ svn delete READMED         README$ svn revert READMEReverted 'README'$ svn status README       README</programlisting>
+      </section><section>
+        <sectioninfo>
+          <title>Resolve Conflicts (Merging Changes of Others) </title>
+        </sectioninfo><para>We've already seen how <programlisting format="linespecific">svn status -u</programlisting> can predict conflicts. Suppose you run <programlisting format="linespecific">svn update</programlisting> and some interesting things occur: </para><programlisting>$ svn updateU  INSTALLG  READMEC  bar.cUpdated to revision 46.</programlisting>
+        <para>The <programlisting format="linespecific">U</programlisting> and <programlisting format="linespecific">G</programlisting> codes are no cause for concern; those files cleanly absorbed changes from the repository. The files marked with <programlisting format="linespecific">U</programlisting> contained no local changes but were <emphasis>Updated</emphasis> with changes from the repository. The <programlisting format="linespecific">G</programlisting> stands for <emphasis>merGed</emphasis>, which means that the file had local changes to begin with, but the changes coming from the repository didn't overlap with the local changes.</para><para>But the <programlisting format="linespecific">C</programlisting> stands for <emphasis>conflict</emphasis>. This means that the changes from the server overlapped with your own, and now you have to manually choose between them.</para><para>Whenever a conflict occurs, three things typically occur to assist you in noticing and resolving that conflict: </para>
+        <itemizedlist>
+          <listitem>
+            <para> Subversion prints a <programlisting format="linespecific">C</programlisting> during the update, and remembers that the file is in a state of conflict. </para>
+          </listitem><listitem>
+            <para> If Subversion considers the file to be mergeable, it places conflict markers &#8212; special strings of text which delimit the <emphasis>sides</emphasis> of the conflict&#8212;into the file to visibly demonstrate the overlapping areas. (Subversion uses the <programlisting format="linespecific">svn:mime-type</programlisting> property to decide if a file is capable of contextual, line-based merging.)</para>
+          </listitem><listitem>
+            <para> For every conflicted file, Subversion places three extra unversioned files in your working copy: <itemizedlist>
+                <listitem>
+                  <para>
+                    <programlisting format="linespecific">filename.mine</programlisting> -- this is your file as it existed in your working copy before you updated your working copy &#8212; that is, without conflict markers. This file has only your latest changes in it. (If Subversion considers the file to be unmergeable, then the <programlisting format="linespecific">.mine</programlisting> file isn't created, since it would be identical to the working file.) </para>
+                </listitem><listitem>
+                  <para>
+                    <programlisting format="linespecific">filename.rOLDREV</programlisting> -- this is the file that was the <programlisting format="linespecific">BASE</programlisting> revision before you updated your working copy. That is, the file that you checked out before you made your latest edits.  <programlisting format="linespecific">OLDREV</programlisting> is the revision number of the file in your <programlisting format="linespecific">.svn</programlisting> directory. </para>
+                </listitem><listitem>
+                  <para>
+                    <programlisting format="linespecific">filename.rNEWREV</programlisting> -- this is the file that your Subversion client just received from the server when you updated your working copy. This file corresponds to the <programlisting format="linespecific">HEAD</programlisting> revision of the repository. <programlisting format="linespecific">NEWREV</programlisting> is the revision number of the repositry <programlisting format="linespecific">HEAD</programlisting>. </para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+        </itemizedlist><para>For example, Sally makes changes to the file <programlisting format="linespecific">sandwich.txt</programlisting> in the repository. Harry has just changed the file in his working copy and checked it in. Sally updates her working copy before checking in and she gets a conflict: </para><programlisting>$ svn updateC  sandwich.txtUpdated to revision 2.$ ls -1sandwich.txtsandwich.txt.minesandwich.txt.r1sandwich.txt.r2</programlisting>
+        <para>At this point, Subversion does not allow Sally to commit the file <programlisting format="linespecific">sandwich.txt</programlisting> until the three temporary files are removed: </para><programlisting>$ svn commit -m "Add a few more things"svn: Commit failed (details follow):svn: Aborting commit: '/home/sally/svn-work/sandwich.txt' remains in conflict</programlisting>
+        <para>To resolve a conflict do one of three things: </para>
+        <itemizedlist>
+          <listitem>
+            <para> Merge the conflicted text <emphasis>by hand</emphasis> (by examining and editing the conflict markers within the file).</para>
+          </listitem><listitem>
+            <para> Copy one of the temporary files on top of the working file. </para>
+          </listitem><listitem>
+            <para> Run <programlisting format="linespecific">svn revert FILENAME</programlisting> to throw away all of the local changes. </para>
+          </listitem>
+        </itemizedlist><para>Once the conflict is resolved, let Subversion know by running <programlisting format="linespecific">svn resolved</programlisting>. This removes the three temporary files and Subversion no longer considers the file to be in a state of conflict. </para><programlisting>$ svn resolved sandwich.txtResolved conflicted state of 'sandwich.txt'</programlisting>
+        <para>Merging conflicts by hand can be quite intimidating the first time you attempt it, but with a little practice, it can become as easy as falling off a bike. </para>
+        <para>Here's an example. Due to a miscommunication, you and Sally, your collaborator, both edit the file <programlisting format="linespecific">sandwich.txt</programlisting> at the same time. Sally commits her changes, and when you go to update your working copy, you get a conflict and you're going to have to edit <programlisting format="linespecific">sandwich.txt</programlisting> to resolve the conflicts. First, let's take a look at the file: </para><programlisting>$ cat sandwich.txtTop piece of breadMayonnaiseLettuceTomatoProvolone&lt;&lt;&lt;&lt;&lt;&lt;&lt; .mineSalamiMortadellaProsciutto=======SauerkrautGrilled Chicken&gt;&gt;&gt;&gt;&gt;&gt;&gt; .r2Creole MustardBottom piece of bread</programlisting>
+        <para>The strings of less-than signs, equal signs, and greater-than signs are conflict markers, and are not part of the actual data in conflict. You generally want to ensure that those are removed from the file before your next commit. The text between the first two sets of markers is composed of the changes you made in the conflicting area: </para>
+        <programlisting>&lt;&lt;&lt;&lt;&lt;&lt;&lt; .mineSalamiMortadellaProsciutto=======</programlisting>
+        <para>The text between the second and third sets of conflict markers is the text from Sally's commit: </para>
+        <programlisting>=======SauerkrautGrilled Chicken&gt;&gt;&gt;&gt;&gt;&gt;&gt; .r2</programlisting>
+        <para>Usually you won't want to just delete the conflict markers and Sally's changes -- she's going to be awfully surprised when the sandwich arrives and it's not what she wanted. So this is where you pick up the phone or walk across the office and explain to Sally that you can't get sauerkraut from an Italian deli.  Once you've agreed on the changes to check in, edit your file and remove the conflict markers. </para>
+        <programlisting>Top piece of breadMayonnaiseLettuceTomatoProvoloneSalamiMortadellaProsciuttoCreole MustardBottom piece of bread</programlisting>
+        <para>Now run <programlisting format="linespecific">svn resolved</programlisting>, and you're ready to commit your changes: </para><programlisting>$ svn resolved sandwich.txt$ svn commit -m "Go ahead and use my sandwich, discarding Sally's edits."</programlisting>
+        <para>Note that <programlisting format="linespecific">svn resolved</programlisting>, unlike most of the other commands we deal with in this chapter, requires an argument. In any case, you want to be careful and only run <programlisting format="linespecific">svn resolved</programlisting> when you're certain that you've fixed the conflict in your file -- once the temporary files are removed, Subversion lets you commit the file even if it still contains conflict markers. </para><para>If you ever get confused while editing the conflicted file, you can always consult the three files that Subversion creates for you in your working copy -- including your file as it was before you updated. You can even use a third-party interactive merging tool to examine those three files. </para>
+      </section><section>
+        <sectioninfo>
+          <title>Copying a File Onto Your Working File </title>
+        </sectioninfo><para>If you get a conflict and decide that you want to throw out your changes, you can merely copy one of the temporary files created by Subversion over the file in your working copy: </para>
+        <programlisting>$ svn updateC  sandwich.txtUpdated to revision 2.$ ls sandwich.*sandwich.txt  sandwich.txt.mine  sandwich.txt.r2  sandwich.txt.r1$ cp sandwich.txt.r2 sandwich.txt$ svn resolved sandwich.txt</programlisting>
+        <para>If you get a conflict, and upon examination decide that you want to throw out your changes and start your edits again, just revert your changes: </para>
+        <programlisting>$ svn revert sandwich.txtReverted 'sandwich.txt'$ ls sandwich.*sandwich.txt</programlisting>
+        <para>Note that when you revert a conflicted file, you don't have to run <programlisting format="linespecific">svn resolved</programlisting>. </para>
+      </section><section>
+        <sectioninfo>
+          <title>Commit Your Changes </title>
+        </sectioninfo><para>Finally! Your edits are finished, you've merged all changes from the server, and you're ready to commit your changes to the repository. </para>
+        <para>The <programlisting format="linespecific">svn commit</programlisting> command sends all of your changes to the repository. When you commit a change, you need to supply a log message, describing your change and why you made it, if relevant. Your log message is attached to the new revision you create. If your log message is brief, you may wish to supply it on the command line using the <programlisting format="linespecific">--message</programlisting> (or <programlisting format="linespecific">-m</programlisting>) option: </para><programlisting>$ svn commit -m "Corrected number of cheese slices."Sending        sandwich.txtTransmitting file data .Committed revision 3.</programlisting>
+        <para>However, if you've been composing your log message as you work, you may want to tell Subversion to get the message from a file by passing the filename with the <programlisting format="linespecific">--file</programlisting> (<programlisting format="linespecific">-F</programlisting>) option: </para><programlisting>$ svn commit -F logmsgSending        sandwich.txtTransmitting file data .Committed revision 4.</programlisting>
+        <para>If you fail to specify either the <programlisting format="linespecific">--message</programlisting> or <programlisting format="linespecific">--file</programlisting> option, then Subversion automatically starts your system default editor for composing a log message. </para><para>If you're in your editor writing a commit message and decide that you want to cancel your commit, you can just quit your editor without saving changes. If you've already saved your commit message, simply delete the text, save again, then abort. </para>
+        <programlisting>$ svn commitWaiting for Emacs...DoneLog message unchanged or not specifieda)bort, c)ontinue, e)dita$</programlisting>
+        <para>The repository doesn't know or care if your changes make any sense as a whole; it only checks to make sure that nobody else has changed any of the same files that you did when you weren't looking. If somebody has done that, the entire commit fails with a message informing you that one or more of your files is out-of-date: </para>
+        <programlisting>$ svn commit -m "Add another rule"Sending        rules.txtsvn: Commit failed (details follow):svn: Your file or directory 'sandwich.txt' is probably out-of-date</programlisting>
+        <para>(The exact wording of this error message depends on the network protocol and server you're using, but the idea is the same in all cases.) </para>
+        <para>At this point, you need to run <programlisting format="linespecific">svn update</programlisting>, deal with any merges or conflicts that result, and attempt your commit again. </para><para>That covers the basic work cycle for using Subversion. There are many other features in Subversion that you can use to manage your repository and working copy, but most of your day-to-day use of Subversion involves only the commands discussed in this chapter.  </para>
+        <section>
+          <sectioninfo>
+            <title>Exercise - Commit Code to the Repository </title>
+          </sectioninfo><para>Commit your local changes to the repository.  The account information for writing to the repository can be found in Appendix A. </para>
+          <para>Blog about the process.  Did your commit work the first time?  If not, why not?  Were there conflicts?  What did you do to resolve them? </para>
+        </section>
+      </section><section>
+        <sectioninfo>
+          <title>Supplemental Reading </title>
+        </sectioninfo><para>Much of this chapter was based on the excellent book, <ulink url="http://svnbook.red-bean.com/en/1.5/"> Version Control with Subversion</ulink> by Ben Collins-Sussman, Brian W. Fitzpatrick and C. Michael Pilato. </para><para>There are important differences between a <emphasis>client-server SCM</emphasis>, such as Subversion or CVS, and a <emphasis>distributed SCM</emphasis>, such as Mercurial or Git.  In the client-server model, developers use a shared single repository; in the distributed model, each developer works directly with their own local repository, and changes are shared between repositories as a separate step.</para><para>Subversion is a great SCM to learn for those who want to make the jump to distributed SCMs.  Here are two excellent guides: </para>
+        <itemizedlist>
+          <listitem>
+            <para>
+              <ulink url="http://git-scm.org/course/svn.html"> Git - SVN Crash Course</ulink>, by Petr Baudis </para>
+          </listitem><listitem>
+            <para>
+              <ulink url="http://nedbatchelder.com/text/hgsvn.html"> Bare-bones basic Mercurial for Subversion users</ulink>, by Ned Batchelder </para>
+          </listitem>
+        </itemizedlist>
+      </section><section>
+        <sectioninfo>
+          <title>Supplemental Exercises </title>
+        </sectioninfo><para>Freeciv is one of the most popular FOSS games, and it's all hosted in a Subversion repository.  Go to the <ulink url="http://freeciv.wikia.com/wiki/Svn"> Freeciv developer site</ulink> and download the code from both HEAD and the latest <emphasis>release tag</emphasis>.  Download them into separate directories.  Do your best to figure out what the current differences are, and summarize those differences in a blog post.  (Note: this might take a while.)</para>
+      </section>
+</chapter>

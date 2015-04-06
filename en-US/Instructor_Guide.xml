@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+]>
+<appendix>
+    <title>Instructor Guide </title>
+    <para>Maybe you're an instructor, and you're using this textbook for your class.  Maybe you're a self-learner, and you're walking through this textbook yourself.  Either way, this appendix contains additional information that you need to consider. </para>
+      <section>
+        <sectioninfo>
+          <title>Chapter Notes </title>
+        </sectioninfo><section>
+          <sectioninfo>
+            <title>Lay of the Land </title>
+          </sectioninfo><para>We discuss the notion of a "class Planet" here, but we do not yet have infrastructure to support classes making their own planets.  For those instructors who wish to set up an instance of a Planet feed reader, there are detailed instructions at the <ulink url="http://www.planetplanet.org/"> Planet Planet site</ulink>.  We hope to provide supporting infrastructure soon. </para>
+        </section>
+      </section><section>
+        <sectioninfo>
+          <title>Getting the Code </title>
+        </sectioninfo><para>For the exercises in this chapter, students will all need access to the version control client. </para>
+        <para>Best practice, ultimately, will involve giving each student their own account.  Since the overhead of that is high, though, we will simply allow students to publish with the following commit info: </para>
+        <itemizedlist>
+          <listitem>
+            <para> Repo: <ulink url="http://svn.teachingopensource.org/repos/tos/">http://svn.teachingopensource.org/repos/tos/</ulink>
+            </para>
+          </listitem><listitem>
+            <para> Userid: tosguest </para>
+          </listitem><listitem>
+            <para> Passwd "I love open source!" </para>
+          </listitem>
+        </itemizedlist><para>As of this version, this single account is the only account with write access.  It's possible that this may change in subsequent versions if someone abuses the repo, but for now, it's the simplest approach.  The goal of this repo is just to give everyone a scratch space to play with.  None of the code in this repository is important. </para>
+      </section><section>
+        <sectioninfo>
+          <title>Building the Code </title>
+        </sectioninfo><para>By this point, it's absolutely essential to have chosen a project.   </para>
+        <para>The Freeciv examples are just that: examples.  The only way to learn how to build a project from source is to build it from source. </para>
+        <para>If you are an individual learner, you should choose a project that interests you.  If you are an instructor, you can either allow the students to pursue their own individual projects, or you can select a single project for the class.  Both approaches have their strengths and weaknesses -- but it's essential to have chosen a project by this point. </para>
+        <para>One good source for inspiration is the <ulink url="https://openhatch.org/"> Open Hatch Project</ulink>.  They do a good job of aggregating open source projects that have tasks suitable for beginners. </para><para>Another possible exercise: figure out why a warning is being thrown during compilation.  Dig around Google.  What can you find?  Can you figure out why this error is being thrown?  Is it worth fixing this warning?  Why or why not?  (Note: in the example given in the chapter, googling the error itself pretty much tells you *exactly* why the error is happening, and why it's probably not worth fixing.) </para>
+        <para>A note for potential collaborators: in the Java world, Ant and Maven are as ubiquitous as are the Autotools in C/C++ projects.  A completely parallel chapter could be written using a project based on Ant or Maven instead of Autotools. </para>
+      </section><section>
+        <sectioninfo>
+          <title>Debugging the Code </title>
+        </sectioninfo><para>Simon Tatham's <ulink url="http://www.chiark.greenend.org.uk/~sgtatham/bugs.html"> How to Report Bugs Effectively</ulink> is a truly outstanding work, and had we not identified it so late in the process, we may well have swiped the text for this chapter.  It's licensed under the OPL; in subsequent versions, if we are able to work out licensing issues, we may choose to incorporate this text. </para>
+      </section><section>
+        <sectioninfo>
+          <title>Explaining the Code </title>
+        </sectioninfo><para>This chapter relies upon a wiki installation.  Since we are teaching true FOSS participation, it's important that we don't think of the work as throwaway.  In particular, the work done for documentation includes taking notes for the class, and those have value of team documentation throughout the class and beuond.  For example, future classes can learn from and build on the wiki work done by previous classes, while still conducting a useful exercise.  Templates can be borrowed, naming conventions borrowed, while writing new content. </para>
+        <itemizedlist>
+          <listitem>
+            <para> Wiki needed, recommendation: MediaWiki is well suited. </para>
+          </listitem><listitem>
+            <para> You may want to run this chapter early on so the class is self-documenting from the beginning. <itemizedlist>
+                <listitem>
+                  <para> Some of the exercises are best done as part of other exercises, such as documenting obtaining and testing and version controlling code. </para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+        </itemizedlist><section>
+          <sectioninfo>
+            <title>Teach two important sections ASAP </title>
+          </sectioninfo><para>Two of the sections in this chapter are useful for early in the class, both the information and exercises.  The exercises are used throughout the class, so are useful when taught early or first.  </para>
+          <itemizedlist>
+            <listitem>
+              <para>
+                <ulink url="https://www.theopensourceway.org/w/index.php?title=Explaining_the_Code%23Introduction">Explaining_the_Code#Introduction</ulink> is useful for explaining how the FOSS methodology is useful in non-code situations, which is an essential point to understand.  The exercise in this section is to do good code commenting and developer documentation for any code developed in this class.  This is a useful exercise to begin early in the class. </para>
+            </listitem><listitem>
+              <para>
+                <ulink url="https://www.theopensourceway.org/w/index.php?title=Explaining_the_Code%23Documenting_technical_and_community_proceedings">Explaining_the_Code#Documenting_technical_and_community_proceedings</ulink> also shares a useful FOSS developer skill that is non-coding.  The exercise is to work as a class to document the class, and so is most useful when it is begun at the earliest opportunity in the class. </para>
+            </listitem>
+          </itemizedlist><para>Subsequent editions of the book are likely to refactor this content and move it to an earlier place in the textbook. </para>
+        </section>
+      </section><section>
+        <sectioninfo>
+          <title>Notes for the 0.9 Release </title>
+        </sectioninfo><para>Some issues that we should consider for the 0.9 Release: </para>
+        <itemizedlist>
+          <listitem>
+            <para> Some chapters begin with a very standard "what you should learn in this chapter" section.  Other chapters lack this.  We really should strive to make that consistent across all chapters. </para>
+          </listitem><listitem>
+            <para> There are a number of terms about which we assume previous knowledge. One simple option is to hyperlink to good explanations of these terms externally; but a better solution might be to link to a glossary at the end of the text.  We're starting to collect these in our <ulink url="https://www.theopensourceway.org/w/index.php?title=Glossary_of_Terms">Glossary of Terms</ulink>.</para>
+          </listitem>
+        </itemizedlist>
+      </section>
+</appendix>

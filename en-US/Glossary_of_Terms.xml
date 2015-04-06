@@ -1,0 +1,308 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+]>
+<appendix>
+  <title>Glossary of Terms</title>
+  <para>This is a very early work in progress.  Contributions to glossary term explanations is occurring on the upstream wiki here: </para>
+      <para>
+        <ulink url="http://teachingopensource.org/index.php/Glossary_of_Terms">http://teachingopensource.org/index.php/Glossary_of_Terms</ulink>
+      </para><section>
+        <sectioninfo>
+          <title>From the <ulink url="https://www.theopensourceway.org/w/index.php?title=Foreword">Foreword</ulink>
+          </title>
+        </sectioninfo><itemizedlist>
+          <listitem>
+            <para> build systems </para>
+          </listitem><listitem>
+            <para> codebase </para>
+          </listitem><listitem>
+            <para> defect tracking (xref: bug tracker) </para>
+          </listitem><listitem>
+            <para> developer </para>
+          </listitem><listitem>
+            <para> development </para>
+          </listitem><listitem>
+            <para> open source </para>
+          </listitem><listitem>
+            <para> revision control (xref with version control) </para>
+          </listitem><listitem>
+            <para> software </para>
+          </listitem><listitem>
+            <para> software engineering </para>
+          </listitem>
+        </itemizedlist>
+      </section><section>
+        <sectioninfo>
+          <title>From the <ulink url="https://www.theopensourceway.org/w/index.php?title=Introduction_to_Free_and_Open_Source_Software">Introduction to Free and Open Source Software</ulink>
+          </title>
+        </sectioninfo><itemizedlist>
+          <listitem>
+            <para> binary code </para>
+          </listitem><listitem>
+            <para> blog </para>
+          </listitem><listitem>
+            <para> build managment </para>
+          </listitem><listitem>
+            <para> command line </para>
+          </listitem><listitem>
+            <para> co-op </para>
+          </listitem><listitem>
+            <para> documentation </para>
+          </listitem><listitem>
+            <para> executable </para>
+          </listitem><listitem>
+            <para> FOSS </para>
+          </listitem><listitem>
+            <para> host </para>
+          </listitem><listitem>
+            <para> import </para>
+          </listitem><listitem>
+            <para> internship </para>
+          </listitem><listitem>
+            <para> library </para>
+          </listitem><listitem>
+            <para> module </para>
+          </listitem><listitem>
+            <para> package </para>
+          </listitem><listitem>
+            <para> source code </para>
+          </listitem><listitem>
+            <para> version control (xref with revision control) </para>
+          </listitem>
+        </itemizedlist>
+      </section><section>
+        <sectioninfo>
+          <title>From <ulink url="https://www.theopensourceway.org/w/index.php?title=The_Lay_of_the_Land">The Lay of the Land</ulink>
+          </title>
+        </sectioninfo><itemizedlist>
+          <listitem>
+            <para> 24x7 </para>
+          </listitem><listitem>
+            <para> aggregate (feed) </para>
+          </listitem><listitem>
+            <para> asynchronous (xref: synchronous) </para>
+          </listitem><listitem>
+            <para> atom (xref: feed) </para>
+          </listitem><listitem>
+            <para> audio chat </para>
+          </listitem><listitem>
+            <para> backend </para>
+          </listitem><listitem>
+            <para> barriers to entry </para>
+          </listitem><listitem>
+            <para> base (code, documentation) </para>
+          </listitem><listitem>
+            <para> bounce control </para>
+          </listitem><listitem>
+            <para> bug </para>
+          </listitem><listitem>
+            <para> bug tracker (xref: defect tracking) </para>
+          </listitem><listitem>
+            <para> business hours </para>
+          </listitem><listitem>
+            <para> category </para>
+          </listitem><listitem>
+            <para> channels (IRC) </para>
+          </listitem><listitem>
+            <para> client (client-server) </para>
+          </listitem><listitem>
+            <para> core committee </para>
+          </listitem><listitem>
+            <para> command </para>
+          </listitem><listitem>
+            <para> community </para>
+          </listitem><listitem>
+            <para> contributors </para>
+          </listitem><listitem>
+            <para> conversation log </para>
+          </listitem><listitem>
+            <para> database </para>
+          </listitem><listitem>
+            <para> dictator-for-life </para>
+          </listitem><listitem>
+            <para> distributed </para>
+          </listitem><listitem>
+            <para> diversity </para>
+          </listitem><listitem>
+            <para> feed (xref: rss, atom) </para>
+          </listitem><listitem>
+            <para> fork </para>
+          </listitem><listitem>
+            <para> forum </para>
+          </listitem><listitem>
+            <para> gateway </para>
+          </listitem><listitem>
+            <para> handle (xref: nick) </para>
+          </listitem><listitem>
+            <para> index (search engine) </para>
+          </listitem><listitem>
+            <para> infrastructure </para>
+          </listitem><listitem>
+            <para> instant messaging </para>
+          </listitem><listitem>
+            <para> intellectual property </para>
+          </listitem><listitem>
+            <para> IRC </para>
+          </listitem><listitem>
+            <para> license </para>
+          </listitem><listitem>
+            <para> list management software </para>
+          </listitem><listitem>
+            <para> localization </para>
+          </listitem><listitem>
+            <para> machine-readable </para>
+          </listitem><listitem>
+            <para> management hierarchy </para>
+          </listitem><listitem>
+            <para> markup </para>
+          </listitem><listitem>
+            <para> meeting minutes </para>
+          </listitem><listitem>
+            <para> mentorship </para>
+          </listitem><listitem>
+            <para> newsgroup </para>
+          </listitem><listitem>
+            <para> nick/nickname (xref: handle) </para>
+          </listitem><listitem>
+            <para> on-ramp </para>
+          </listitem><listitem>
+            <para> openness </para>
+          </listitem><listitem>
+            <para> Planet (blog aggregator) </para>
+          </listitem><listitem>
+            <para> real time </para>
+          </listitem><listitem>
+            <para> repository </para>
+          </listitem><listitem>
+            <para> RSS (xref: feed) </para>
+          </listitem><listitem>
+            <para> search engine </para>
+          </listitem><listitem>
+            <para> security </para>
+          </listitem><listitem>
+            <para> server (client-server) </para>
+          </listitem><listitem>
+            <para> status report </para>
+          </listitem><listitem>
+            <para> synchronous (xref: asynchronous) </para>
+          </listitem><listitem>
+            <para> sponsor </para>
+          </listitem><listitem>
+            <para> subscriber management </para>
+          </listitem><listitem>
+            <para> tag </para>
+          </listitem><listitem>
+            <para> tarball </para>
+          </listitem><listitem>
+            <para> testers </para>
+          </listitem><listitem>
+            <para> third culture </para>
+          </listitem><listitem>
+            <para> timeline </para>
+          </listitem><listitem>
+            <para> user-editable </para>
+          </listitem><listitem>
+            <para> warez </para>
+          </listitem><listitem>
+            <para> wiki </para>
+          </listitem>
+        </itemizedlist>
+      </section><section>
+        <sectioninfo>
+          <title>From <ulink url="https://www.theopensourceway.org/w/index.php?title=Getting_the_Code">Getting the Code</ulink>
+          </title>
+        </sectioninfo><itemizedlist>
+          <listitem>
+            <para> argument (command line) </para>
+          </listitem><listitem>
+            <para> base </para>
+          </listitem><listitem>
+            <para> cache </para>
+          </listitem><listitem>
+            <para> check in (version control) </para>
+          </listitem><listitem>
+            <para> checkout (version control) </para>
+          </listitem><listitem>
+            <para> commit (version control) </para>
+          </listitem><listitem>
+            <para> child (directory) </para>
+          </listitem><listitem>
+            <para> conflict (version control) </para>
+          </listitem><listitem>
+            <para> conflict marker </para>
+          </listitem><listitem>
+            <para> copy history </para>
+          </listitem><listitem>
+            <para> copy-merge-modify (version control) </para>
+          </listitem><listitem>
+            <para> diff </para>
+          </listitem><listitem>
+            <para> distributed (version control) </para>
+          </listitem><listitem>
+            <para> engine (software) </para>
+          </listitem><listitem>
+            <para> feature </para>
+          </listitem><listitem>
+            <para> file change </para>
+          </listitem><listitem>
+            <para> HEAD (version control) </para>
+          </listitem><listitem>
+            <para> intermediate directory </para>
+          </listitem><listitem>
+            <para> letter code </para>
+          </listitem><listitem>
+            <para> local (local machine) </para>
+          </listitem><listitem>
+            <para> log message (version control) </para>
+          </listitem><listitem>
+            <para> long form (command line) </para>
+          </listitem><listitem>
+            <para> metadata </para>
+          </listitem><listitem>
+            <para> merging (version control) </para>
+          </listitem><listitem>
+            <para> parent (directory) </para>
+          </listitem><listitem>
+            <para> path (directory) </para>
+          </listitem><listitem>
+            <para> platform </para>
+          </listitem><listitem>
+            <para> pristine copy (version control) </para>
+          </listitem><listitem>
+            <para> recursion </para>
+          </listitem><listitem>
+            <para> release tag </para>
+          </listitem><listitem>
+            <para> repository </para>
+          </listitem><listitem>
+            <para> revert </para>
+          </listitem><listitem>
+            <para> revision (version control) </para>
+          </listitem><listitem>
+            <para> SCM (source code management) (xref: source control, version control) </para>
+          </listitem><listitem>
+            <para> subcommand </para>
+          </listitem><listitem>
+            <para> status code </para>
+          </listitem><listitem>
+            <para> symbolic link </para>
+          </listitem><listitem>
+            <para> syntax </para>
+          </listitem><listitem>
+            <para> tree </para>
+          </listitem><listitem>
+            <para> tree change </para>
+          </listitem><listitem>
+            <para> trunk </para>
+          </listitem><listitem>
+            <para> unified diff </para>
+          </listitem><listitem>
+            <para> update (version control) </para>
+          </listitem><listitem>
+            <para> working copy/working files </para>
+          </listitem><listitem>
+            <para> working revision</para>
+          </listitem>
+        </itemizedlist>
+      </section>
+</appendix>

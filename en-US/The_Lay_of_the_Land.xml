@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+]>
+<chapter>
+  <chapterinfo>
+    <author>
+      <firstname>Chris</firstname>
+      <surname>Tyler</surname>
+      <affiliation>
+	<orgname>Seneca College</orgname>
+	<orgdiv>Cntre for Development of Open Technology</orgdiv>
+      </affiliation>
+      <email>ctyler@senecac.on.ca</email>
+    </author>
+  </chapterinfo> 
+  <title>The Lay of the Land</title>
+
+      <para>
+        <emphasis>Free and Open Source Software</emphasis> (FOSS) is as much about <emphasis>community</emphasis> as it is about writing software.  Consider the two words that make up the phrase <emphasis>open source</emphasis>: obviously, having source code is not a unique quality, since <emphasis>all</emphasis> software has source code, somewhere. The distinguishing feature of open source software is its <emphasis>openness</emphasis>, but being open is moot unless there is a community using the software. The more people using, collaborating, and contributing to the software, the greater the value of its openness.</para><para>Each FOSS project builds its own unique community with its own qualities. Some communities are small, others large; some are highly structured, some are much more casual; some readily welcome new contributors, others have high <emphasis>barriers to entry</emphasis>; and some communities are global, while others are very local. One of the first steps in getting involved with an open source community is to scout out the <emphasis>lay of the land</emphasis> and discover the characteristics of the community. To do so, you need to understand the qualities you're looking for, and you need to understand how to communicate with the community.</para><para>It's important -- and a little daunting -- to realize that the concept of <emphasis>open</emphasis> applies not only to the source code, but to all of the activity that takes place within a community. Engaging with an open source community means working in the open, succeeding in the open, and failing in the open.</para><para>At the end of this chapter, you should: </para>
+      <itemizedlist>
+        <listitem>
+          <para> Understand the key qualities of a FOSS community; </para>
+        </listitem><listitem>
+          <para> Understand common FOSS communication tools; </para>
+        </listitem><listitem>
+          <para> Be able to determine the qualities of a specific FOSS community; </para>
+        </listitem><listitem>
+          <para> Start to engage with one or more FOSS communities using its communication tools and culture. </para>
+        </listitem>
+      </itemizedlist><section>
+        <sectioninfo>
+          <title>The Challenges of Global Community </title>
+        </sectioninfo><para>Most FOSS projects are (or aspire to become) <emphasis>distributed</emphasis>, global communities. This introduces a number of challenges:</para><itemizedlist>
+          <listitem>
+            <para>
+              <emphasis>Language</emphasis>. Any global community will of necessity include participants with different native languages. Large projects usually evolve collaborative subgroups that work on documentation and <emphasis>localization</emphasis> for specific languages, but contributors to code and <emphasis>base</emphasis> documentation need a common language in which they can communicate. In many cases, the common language is English -- in part because it is one of the most widely spoken languages today. However, the fact that the reserved keywords and base documentation for many programming languages are in English may also be a critical factor. In Eric S. Raymond's <ulink url="http://www.catb.org/~esr/faqs/hacker-howto.html#skills4"> How to Become a Hacker</ulink>, Linus Torvalds, the original creator of the Linux kernel, is quoted as saying that it never occurred to him to comment the Linux kernel code in any language other than English, despite the fact that English is his third language.</para>
+          </listitem><listitem>
+            <para>
+              <emphasis>Time and distance</emphasis>. The fact that our globe spins introduces some interesting challenges: collaborators in India and the USA, for example, will never be able to collaborate in <emphasis>real time</emphasis> during normal <emphasis>business hours</emphasis> -- in fact, they'll hardly be able to collaborate during normal waking hours. Most communities meet face-to-face only once or twice a year, if at all, and the face-to-face meetings usually involve only a small subset of the whole community. These challenges have forced the development of really good <emphasis>asynchronous</emphasis> online communication tools. However, having people in different timezones also has some advantages, making it easier to staff <emphasis>IRC</emphasis>
+              <emphasis>channels</emphasis>, follow rapidly-developing <emphasis>security</emphasis> issues, and manage <emphasis>infrastructure</emphasis>
+              <emphasis>24x7</emphasis>.</para>
+          </listitem><listitem>
+            <para>
+              <emphasis>Ego</emphasis>. Standing out in an ocean of <emphasis>nicknames</emphasis> and e-mail addresses, trusting people you have never met, and accepting criticism from strangers is very difficult. Control freaks, glory-grabbers, bullies, and fearmongers exist in FOSS communities and are poisonous to community-building. Creating a <emphasis>fork</emphasis> of a software project is a significant undertaking that is not usually done except as a last resort, because it divides community attention and requires duplication of resources; however, the simple fact that a fork is possible <emphasis>and the community is essential</emphasis> often provides an effective check on runaway egos.</para>
+          </listitem>
+        </itemizedlist>
+      </section><section>
+        <sectioninfo>
+          <title>The Synthetic Third Culture </title>
+        </sectioninfo><para>Ruth Hill Useem developed the term <emphasis>
+            <ulink url="http://www.tckworld.com/"> Third Culture Kids</ulink> (TCKs)</emphasis> forty years ago to describe the children of military, diplomatic, missionary, and other families who exist in a twilight world between their passport countries and the countries in which they live. Often, these children are neither at home in their birth culture nor in the culture in which they live day-to-day, a fact that often becomes evident only upon returning to their native country. TCKs usually feel more at home with other TCKs than with other people.</para><para>In a somewhat similar way, FOSS communities often create their own culture, which is not the native culture of any of the participants. When Chinese developers work with Brazilian colleagues day after day, their communication does not usually reflect much of either Chinese nor Brazilian culture. When joined by colleagues from (say) Morocco, Russia, Canada, and Australia, native culture is made even less significant. Over time, the communities build up shared experiences, humor, social norms, and conventions that define that community, building up a synthetic third culture. </para>
+        <para>This is not unique -- collaborative groups have always developed their own sense of identity. The difference with most FOSS communities is that the collaboration is remote, so the participants remain in their native cultural context while participating in the synthetic third culture of the FOSS community, and the interaction is high-volume and sustained over a long period of time (decades, in some cases). Obviously, the <emphasis>diversity</emphasis>, intensity, and health of the community play a significant role in the depth and uniqueness of the <emphasis>third culture.</emphasis>
+        </para>
+      </section><section>
+        <sectioninfo>
+          <title>Qualities of a Community </title>
+        </sectioninfo><para>Each FOSS community has a rich set of defining qualities. Understanding these qualities is essential to evalutating and participating in the community: </para>
+        <itemizedlist>
+          <listitem>
+            <para>
+              <emphasis>Focus</emphasis>. What does the community want to achieve? The stated goals may be broader than the actual interest and focus of the community. For example, a group may state that they're developing a Geographic Information System (GIS), which is a broad goal -- but the actual software may be focused on just one particular use of GIS.</para>
+          </listitem><listitem>
+            <para>
+              <emphasis>Maturity and History</emphasis>. Is the project new or old? Young communities may not have developed effective procedures and rhythms, or may not yet have attracted <emphasis>contributors</emphasis> other than developers (such as documentation writers, artists, <emphasis>testers</emphasis>, and marketers). On the other hand, older communities may have plateaued with a stable, complete product (good) or stagnated (bad). Some of the oldest FOSS communities, such as the X Windows community, have gone through multiple periods of rapid development, stable releases, stagnation, and rejuvenation.</para>
+          </listitem><listitem>
+            <para>
+              <emphasis>Type of Openness</emphasis>. The term <emphasis>open source</emphasis> is broadly applied, but there are many different types and degrees of openness. Some projects are open in a lob-the-software-over-the-wall sense: the code has been released under an open source <emphasis>license</emphasis>, but no community has formed around it; periodically, a new source <emphasis>tarball</emphasis> comes flying over the wall to play with, and it's not obvious how to contribute improvements back to the main source of the code -- or if it's even possible at all. Some projects have an active community but a strict <emphasis>management hierarchy</emphasis> anchored by a <emphasis>dictator-for-life</emphasis> or impenetrable <emphasis>core committee</emphasis>, while others have an openness that extends to their management structure. There are also projects where the core source code is tightly controlled, but are extremely open in peripheral areas such translations, documentation, and community support.</para>
+          </listitem><listitem>
+            <para>
+              <emphasis>Commercial ties</emphasis>. Is there a company (or companies) <emphasis>sponsoring</emphasis> the project? Some sponsors provide only resources (funding, equipment, infrastructure), while others provide technology, legal protection, people, or some combination. It's important to understand how much influence the sponsors have in the overall direction of the project, and whether the community can continue if the sponsor pulls out (or fails).</para>
+          </listitem><listitem>
+            <para>
+              <emphasis>Subgroups</emphasis>. Does the community operate as a whole, or does it operate as a collection of subgroups? Some large communities have formally-defined subgroups, while others have communities that form, expand, contract, and dissolve in an organic way as needed. Sub-groups may also be defined along technological, use-case, geographic, or functional lines.</para>
+          </listitem><listitem>
+            <para>
+              <emphasis>Skills</emphasis>. Each community requires and focuses on different sets of skills. In some cases, a community could benefit from having new contributors with skill sets that are not currently represented or even recognized as being needed.</para>
+          </listitem><listitem>
+            <para>
+              <emphasis>Mentoring and Training</emphasis>. Some communities grow in a haphazard way, while others have clearly-defined, simple <emphasis>on-ramps</emphasis> with purposeful training and <emphasis>mentorship</emphasis> programs.</para>
+          </listitem>
+        </itemizedlist>
+      </section><section>
+        <sectioninfo>
+          <title>Communicating </title>
+        </sectioninfo><para>Communication in an open-source community takes many forms, but all of these break down into two broad categories: <emphasis>synchronous</emphasis> (live/concurrent) and asynchronous (non-simultaneous). Synchronous communications might include <emphasis>instant messaging</emphasis> and various forms of <emphasis>audio chat</emphasis>; asynchronous communications include everything from email to <emphasis>wiki</emphasis> pages. Due to the geographically-dispersed nature of most communities, most communication makes heavy use of technology: it's no accident that open source in its current form has grown hand-in-hand with the Internet.</para><para>The online anchor-point for most communities is a web site. However, the nature of traditional HTML pages is that they are a static, one-to-many form of communication created by a small number of people with write access to a <emphasis>server</emphasis>. This leads to pages that can become quickly outdated and which do not truly reflect the collaborative nature of the community.</para><para>For this reason, many open source projects have an anchor site with a few static pages, but the bulk of their web content comes from wiki (user-editable), <emphasis>forum</emphasis> (user-posted), and mailing list archive pages.</para><section>
+          <sectioninfo>
+            <title>Wikis </title>
+          </sectioninfo><para>The concept of a wiki is widely understood due to the popularity of Wikipedia: it's a web site where the pages are <emphasis>user-editable.</emphasis> A wiki provides an easy-to-use, asynchronous way of putting semi-permanent content on the web, so they are ideal for documentation, <emphasis>timelines,</emphasis>
+            <emphasis>status reports,</emphasis>
+            <emphasis>meeting minutes,</emphasis> and <emphasis>conversation logs.</emphasis> From the perspective of a reader, accessing wiki content is the same as accessing static HTML content, and <emphasis>search engines</emphasis>
+            <emphasis>index</emphasis> wiki content very well. For the writer, a wiki provides version control, a <emphasis>database</emphasis>
+            <emphasis>backend</emphasis>, simplified <emphasis>markup</emphasis>, and a fast edit-and-post cycle.</para><para>Most open source projects use one of the common wiki packages such as MediaWiki (which also powers Wikipedia), TikiWiki, MindTouch, or Trac; this has the benefit of reducing the number of different types of markup that must be memorized. </para>
+          <para>Wikis are related to <emphasis>content management systems</emphasis> (<emphasis>CMS</emphasis>), such as Drupal or Wordpress.  When a project uses a CMS for a website, the goal is the same -- enable the community to edit the project content.</para>
+        </section>
+      </section><section>
+        <sectioninfo>
+          <title>Exercise: Project wikis </title>
+        </sectioninfo><para>Wikis are meant to be community spaces where everyone can join in. They grown and are made better through community participation. For this exercise, we're going to encourage you to check out the wikis of three established open source projects. These might be projects you looked at in the previous chapter: </para>
+        <orderedlist numeration="arabic">
+          <listitem>
+            <para> What wiki software are they using? </para>
+          </listitem><listitem>
+            <para> Search in the wiki for the history and current structure of the project. Is it in the wiki, or is it somewhere else in their project?   </para>
+          </listitem><listitem>
+            <para> When the last change was made, who made it, and how often are changes submitted. Would you describe this wiki as "thriving" or "languishing"? </para>
+          </listitem>
+        </orderedlist><para>Authoring and maintaining pages in a wiki (the latter sometimes being referred to as <emphasis>gardening</emphasis>) is a critical part of any FOSS project. If you're particularly interested in a project, register an account on the wiki and create a <emphasis>User Profile</emphasis> page. You'll want to link this back to your portfolio that you created in the previous chapter.</para>
+      </section><section>
+        <sectioninfo>
+          <title>Blogs and Planets </title>
+        </sectioninfo><para>While a wiki provides a semi-permanent place for content, blogs provide the opposite: a flow of transient, in-the-moment news and commentary. </para>
+        <para>Because many open source participants write blogs, it has become difficult to keep up with them on a one-by-one basis. The volume of blog postings created within a community can be overwhelming. To help deal with this, <emphasis>RSS</emphasis> or <emphasis>Atom</emphasis>
+          <emphasis>feeds</emphasis> enable the receipt of content in a <emphasis>machine-readable</emphasis> format so that it can be used in a variety of different ways (for example, in Firefox Live Bookmarks, through a service such as Google Reader, or in a program such as <emphasis>Liferea</emphasis> or <emphasis>FeedReader</emphasis>).  Many open-source community maintain a <emphasis>Planet</emphasis> site which <emphasis>aggregates</emphasis> the feeds from community members into a single page (and the Planet, in turn, provides an aggregated feed). Here are some examples: </para><itemizedlist>
+          <listitem>
+            <para> The Mozilla Planet - <ulink url="http://planet.mozilla.org">http://planet.mozilla.org</ulink>
+            </para>
+          </listitem><listitem>
+            <para> Fedora Planet - <ulink url="http://planet.fedoraproject.org/">http://planet.fedoraproject.org/</ulink>
+            </para>
+          </listitem><listitem>
+            <para> Go-OO Planet - <ulink url="http://planet.go-oo.org/">http://planet.go-oo.org/</ulink>
+            </para>
+          </listitem>
+        </itemizedlist><para>In most cases, individual blog postings can be <emphasis>tagged</emphasis> or <emphasis>categorized</emphasis>, and separate feeds can be generated for each tag or category. This permits posts to be sent to one or more different planets at the author's discretion.</para><para>As you get into FOSS, you will want to share your news and opinions with others via a blog. You need to represent your thoughts professionally; here are some guidelines:  </para>
+        <itemizedlist>
+          <listitem>
+            <para> Write professionally. Blog postings are less formal than other types of writing, but they are still a reflection of your communications skills.  </para>
+          </listitem><listitem>
+            <para> Remember that the internet has a long memory. The Planet page is generated periodically, and even if you delete or change your posting, it may be indexed, cached, or reposted until the planet is re-generated. Avoid saying something that might come back to haunt you later -- and remember that future employers may read your old postings (as well as future in-laws, office mates, and so forth).  </para>
+          </listitem><listitem>
+            <para> Do not use profane, obscene, or rude content, or content that belittles other people.  </para>
+          </listitem><listitem>
+            <para> Do not link to profane, obscene, rude, or illegal material or to sites that knowingly violate <emphasis>intellectual property</emphasis> rights (<emphasis>warez</emphasis>). </para>
+          </listitem><listitem>
+            <para> Ensure that each posting makes sense when taken out of the context of your blog and viewed on its own. If you are referring to one of your previous posts, link to it rather than refer to it as being "below" or "above".  </para>
+          </listitem><listitem>
+            <para> Link extensively. If you're referring to a blog post, article, video, event, <emphasis>command</emphasis>, software package, person, project -- link to all of them so that your readers can find out more information. </para>
+          </listitem><listitem>
+            <para> Ensure that each posting conforms to your community or institution's policies. </para>
+          </listitem><listitem>
+            <para> Keep the postings relevant to your open source work. Use tagging/categories to keep deeply off-topic posts off your planet feeds. </para>
+          </listitem>
+        </itemizedlist>
+      </section><section>
+        <sectioninfo>
+          <title>Exercise: Linking your Blog to Planets </title>
+        </sectioninfo><para>In the introduction, you created a blog for yourself.  Add that blog to your class planet, if there is one. Monitor the planets operated by the communities that run the wikis you investigated, and create a blog posting of your own with your observations of the community planets. </para>
+      </section><section>
+        <sectioninfo>
+          <title>IRC </title>
+        </sectioninfo><para>IRC stands for <emphasis>Internet Relay Chat</emphasis> and is one of the primary means of synchronous communication between people working on a FOSS project. It's an older text-based chat system where <emphasis>clients</emphasis> connect to the servers of one or more <emphasis>networks</emphasis>, and the servers relay messages between themselves within each network (hence the name). Communication is done in <emphasis>channels</emphasis> which individual users join, and users are identified by <emphasis>nicks</emphasis> (nicknames). In addition to human users, various <emphasis>services</emphasis> and <emphasis>bots</emphasis> (robots -- programs) are present in many channels. </para><para>To use IRC, you'll need an IRC client; Wikipedia maintains an <ulink url="http://en.wikipedia.org/wiki/Comparison_of_Internet_Relay_Chat_clients"> excellent list of options</ulink>. We recommend installing a few on your system and trying them out to see which one you prefer. You'll need to select a nickname (<emphasis>nick</emphasis> or <emphasis>handle</emphasis>) -- choose wisely, because you'll want to keep your nick for the long run. It's strongly recommended that you <ulink url="http://freenode.net/faq.shtml#registering"> register your nick</ulink> so that other people cannot masquerade as you.</para><para>There are a handful of IRC networks used in open source, including ones operated by large projects (such as irc.mozilla.org) and ones which are operated by organizations and shared by many different communities (such as irc.freenode.net and irc.oftc.net).  These are open channels and may be <emphasis>logged</emphasis> by one or more entities.  Consider anything you say in IRC to be as public as if you said it on a busy street corner, with a megaphone, and seven people videotaping everything.</para><para>Most IRC clients let you perform operations using menus/hotkeys or by typing commands. Commands start with a slash ("/") to distinguish them from text that you are typing into the chat session. Since the commands are the same in all IRC clients, it's worthwhile becoming familiar with them -- here are some of the basics: </para>
+        <itemizedlist>
+          <listitem>
+            <para>
+              <programlisting format="linespecific">/connect <emphasis>server</emphasis>
+              </programlisting> - connect to the named IRC server. </para>
+          </listitem><listitem>
+            <para>
+              <programlisting format="linespecific">/list</programlisting> - lists available channels. Channel names start with "#" (official channels) or "##" (unofficial channels). </para>
+          </listitem><listitem>
+            <para>
+              <programlisting format="linespecific">/join <emphasis>channel</emphasis>
+              </programlisting> - join the listed channel on the server to which you are connected. </para>
+          </listitem><listitem>
+            <para>
+              <programlisting format="linespecific">/me <emphasis>action</emphasis>
+              </programlisting> - reports your nick as performing an action. </para>
+          </listitem><listitem>
+            <para>
+              <programlisting format="linespecific">/leave <emphasis>reason</emphasis>
+              </programlisting> - leave the current channel, citing the reason given (optional). </para>
+          </listitem><listitem>
+            <para>
+              <programlisting format="linespecific">/quit <emphasis>reason</emphasis>
+              </programlisting> - leave the server, citing the reason given (optional). </para>
+          </listitem>
+        </itemizedlist><para>Any text you type that does not begin with a slash is taken to be text, and is entered into the conversation. </para>
+        <para>It is normal to join a channel and say nothing. In fact, it is expected: don't join a channel and say "hi" or leave and say "bye" -- you may be interrupting a conversation already underway. Feel free to join as many channels as you like, once you're comfortable with IRC. </para>
+        <para>It is fine to join a channel and sit there idle for a long time, lurking. You might never say anything; this is a good way for you to learn about who is in the channel, what they are talking about, etc. Listening is often more important than talking, because you learn more. </para>
+        <para>If you have a question you should just ask it rather than saying, "Can I ask a question about ..." or "Does anyone know about ...". You don't need to direct general questions to a specific person. Rather, you should ask in the channel in general, and someone usually answers you: </para>
+        <programlisting> &lt;don&gt; How do I ask a question? &lt;funny_guy&gt; don: you just did!</programlisting>
+        <para>If there are several conversations taking place at the same time, it's customary to put the nick of the user you are directing your comment to at the start of the line (as shown in the second line above); most IRC clients send a special alert to a user whose nick is "spoken" in a channel. Most IRC clients also auto-complete the nick when you press the <emphasis>[Tab]</emphasis> key, so you could type <programlisting format="linespecific">fun<emphasis>[Tab]</emphasis>
+          </programlisting> to fill in the nick "funny_guy".</para><para>Channels generally have a purpose, and people are often joined to many different channels at once.  You'll see many of the same people in different channels.  However, what might be appropriate in one channel often isn't in another.  When you enter a channel, take a look at its Topic (displayed at the top, or with the <programlisting format="linespecific">/topic</programlisting> command) for clues. </para><para>Generally you should avoid small-talk unless you are sure that it is appropriate. Even if you see others in the channel doing it, don't take that to mean that you should (i.e., channel veterans can get away with things newcomers can't!). At the same time, be ready for a playful and (at times) very sarcastic environment. </para>
+        <para>Also be aware that you never know who you are talking to based on their nicks (you learn who people are later, as you get to know people's nicks), and avoid making assumptions about people in the channel. </para>
+      </section><section>
+        <sectioninfo>
+          <title>Exercise: Learning IRC </title>
+        </sectioninfo><para>Install one or more IRC clients. Find out which network(s) and channel(s) are used by the three open source communities that operate the wikis you investigated. Choose a nick and connect to those networks and channels. Leave your IRC client open for at least 24 hours, and observe the patterns of conversation and key participants. Have a discussion in at least one of the channels, and blog about your experience, including an excerpt from your conversation. </para>
+      </section><section>
+        <sectioninfo>
+          <title>Mailing lists and newsgroups </title>
+        </sectioninfo><para>Almost all open source communities use an electronic mail list for discussions. These lists are sometimes managed through online services such as Google Groups, but are often managed through private installations of <emphasis>list management software</emphasis> such as <ulink url="http://www.gnu.org/software/mailman/index.html"> MailMan</ulink>, which provide <emphasis>subscriber management</emphasis>, <emphasis>bounce control</emphasis>, and web-accessible archiving.</para><para>Surprisingly, there is a significant variation from community to community in terms of list ettiquite and even the amount of participation on lists. </para>
+        <para>Some communities use <emphasis>newsgroups</emphasis> or forums in place of mailing lists, but these are usually <emphasis>gatewayed</emphasis> to an e-mail list -- for example, Mozilla uses newsgroups extensively, but many of the Mozilla newsgroup participants actually access the newsgroups as mail.</para><para>An open-source participant subscribed to several lists in multiple communities can easily receive thousands of messages a day. For this reason, many people choose to use a separate mailbox (such as a Gmail account) or filtering rules to keep their mail under control. </para>
+      </section><section>
+        <sectioninfo>
+          <title>Exercise: Joining the List </title>
+        </sectioninfo><para>Subscribe to at least one mailing list from each of the three open source communities you are observing, and read through the last few months of message archives for each list. Blog your observations of their communication. </para>
+      </section><section>
+        <sectioninfo>
+          <title>Bug trackers and repositories </title>
+        </sectioninfo><para>It may not be immediately obvious, but <emphasis>bug trackers</emphasis> and code <emphasis>repositories</emphasis> are also important communication tools in most open source communities; for example, there are often significant discussions that take place in bug trackers. See the chapters (XREF).</para>
+      </section><section>
+        <sectioninfo>
+          <title>Drawing conclusions </title>
+        </sectioninfo><para>We learn to read before we learn to write; in the same way, the best way to start working with an open source community is to observe that community in action. As you have completed the exercises in this chapter, you should have started to form an impression about the communities that you have been observing. </para>
+        <section>
+          <sectioninfo>
+            <title>Exercise: Share Your Thoughts </title>
+          </sectioninfo><para>Write a blog post summarizing your thoughts about the communities you've been observing. Specifically note your conclusions about the qualities of the community identified earlier.</para>
+        </section>
+      </section>
+</chapter>

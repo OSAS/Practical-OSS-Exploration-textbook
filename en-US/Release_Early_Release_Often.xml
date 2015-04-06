@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+]>
+<chapter>
+  <article lang="en">
+    <articleinfo>
+      <title>Release_Early,_Release_Often</title>
+    </articleinfo><section>
+      <sectioninfo>
+        <title>Release_Early,_Release_Often</title>
+      </sectioninfo><para>By Greg DeKoenigsberg </para>
+      <para>There's a phrase we use all the time in the world of Free and Open Source Software: "Release Early, Release Often". </para>
+      <para>We believe that this idea doesn't just apply to software. </para>
+      <para>This textbook is an experiment, with a number of goals: </para>
+      <itemizedlist>
+        <listitem>
+          <para> To encourage students to participate meaningfully in FOSS projects; </para>
+        </listitem><listitem>
+          <para> To empower professors to bridge the gap between FOSS and student; </para>
+        </listitem><listitem>
+          <para> To build a community around the idea of teaching FOSS development; </para>
+        </listitem><listitem>
+          <para> To build a collaborative textbook that professors or students can remix, reuse, and improve over time. </para>
+        </listitem>
+      </itemizedlist><para>In short, we want to run this textbook like we would run a software project.  Which means that we will release this textbook early and often. </para>
+      <para>Official "releases" of the textbook will always be available in multiple formats from the <ulink url="http://svn.teachingopensource.org/repos/textbook/"> Subversion repository at teachingopensource.org</ulink>.  There will also be a "release" page on the wiki at <ulink url="https://www.theopensourceway.org/w/index.php?title=Textbook_Latest_Release">Textbook Latest Release</ulink>. </para><para>Our "mainline" for development will always be linked from the <ulink url="https://www.theopensourceway.org/w/index.php?title=Textbook_Roadmap">Textbook Roadmap</ulink>.  Users are invited to participate actively!  If you are a professor, or even a student, you should always feel free to improve the wiki.  We hope to see lots of positive changes contributed to this textbook.  Translations, new chapters, substantial revisions to old chapters, additional exercises, even simple fixes to grammar or spelling or URLs: all edits are welcome.  Remember: be bold.  We will always have the option of reverting changes. </para><para>Join the conversation about the textbook, and about teaching open source in general, by joining the <ulink url="http://teachingopensource.org/mailman/listinfo/tos"> project mailing list</ulink>.  We look forward to meeting you.</para>
+    </section>
+  </article>
+</chapter>

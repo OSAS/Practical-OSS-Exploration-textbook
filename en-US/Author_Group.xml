@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE authorgroup PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+]>
+<authorgroup>
+  <author>
+    <firstname>Greg</firstname>
+    <surname>DeKoenigsberg</surname>
+    <affiliation>
+      <orgname>Red Hat</orgname>
+      <orgdiv>Community Architecture</orgdiv>
+    </affiliation>
+    <email>gdk@redhat.com</email>
+  </author>
+  <author>
+    <firstname>Chris</firstname>
+    <surname>Tyler</surname>
+    <affiliation>
+      <orgname>Seneca College</orgname>
+      <orgdiv>Cntre for Development of Open Technology</orgdiv>
+    </affiliation>
+    <email>ctyler@senecac.on.ca</email>
+  </author>
+  <author>
+    <firstname>Karsten</firstname>
+    <surname>Wade</surname>
+    <affiliation>
+      <orgname>Red Hat</orgname>
+      <orgdiv>Community Architecture</orgdiv>
+    </affiliation>
+    <email>kwade@redhat.com</email>
+  </author>
+  <author>
+    <firstname>Max</firstname>
+    <surname>Spevack</surname>
+    <affiliation>
+      <orgname>Red Hat</orgname>
+      <orgdiv>Community Architecture</orgdiv>
+    </affiliation>
+    <email>mspevack@redhat.com</email>
+  </author>
+  <author>
+    <firstname>Mel</firstname>
+    <surname>Chua</surname>
+    <affiliation>
+      <orgname>Red Hat</orgname>
+      <orgdiv>Community Architecture</orgdiv>
+    </affiliation>
+    <email>mel@redhat.com</email>
+  </author>
+  <author>
+    <firstname>Jeff</firstname>
+    <surname>Sheltren</surname>
+    <affiliation>
+      <orgname>Oregon State University (OSU)</orgname>
+      <orgdiv>Open Source Labs (OSL)</orgdiv>
+    </affiliation>
+    <email>jeff@osuosl.org</email>
+  </author>
+</authorgroup>
+

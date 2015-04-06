@@ -1,0 +1,461 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+]>
+<chapter>
+  <article lang="en">
+    <articleinfo>
+      <title>Explaining_the_Code</title>
+    </articleinfo><section>
+      <sectioninfo>
+        <title>Explaining_the_Code</title>
+      </sectioninfo><para>By Karsten Wade </para>
+      <section>
+        <sectioninfo>
+          <title>Introduction </title>
+        </sectioninfo><para>People are going to tell you documentation doesn't matter.  In a perfect world, it doesn't!  If all code were self-evident and all programs worked for users without needing help, if all work and communities were easy to participate in, perhaps we could do without documentation. Of course, that would require all people to think and act in similar ways; we may never be without documentation simply because we are a diverse species. </para>
+        <para>In FOSS, documentation is a key tool of transparency and participation.  You have to document everything that you do in a FOSS project, not just the code.  Next year when you need to remember why a technical decision was made, the answer is coming from a combination of mailing list archives, wiki page history, and well written version control log messages.  A question of why you have specific commit rules or code styles?  Mailing list archive and wiki page history are your friends. </para>
+        <para>There are two main ends in the spectrum of documentation: </para>
+        <orderedlist numeration="arabic">
+          <listitem>
+            <para> Content written ad hoc and in the flow of working; it captures the moment; examples are comments in source code, commit log messages, and notes taken during a meeting. </para>
+          </listitem><listitem>
+            <para> Content planned as a document of some size; it captures a version in time; it follows a more rigorous process with a higher quality result. </para>
+          </listitem>
+        </orderedlist><para>Part of your journey is learning when to practice each end of the spectrum.  Properly done, the ad hoc just-in-time components add up to coherent whole that approaches a full document, but it usually requires a restructuring and culling of content to make it gain the higher quality. </para>
+        <para>From a practical standpoint, here's a piece of code. What does it do? Take 2 minutes and see how far you can get just by looking at the code snippet alone. </para>
+        <programlisting>    def findAllPrevious(self, name=None, attrs={}, text=None, limit=None,                        **kwargs):        return self._findAll(name, attrs, text, limit, self.previousGenerator,                           **kwargs)</programlisting>
+        <para>Even if you had written this code yourself six months ago, how likely would you be to remember what it does now? </para>
+        <para>How about this? </para>
+        <programlisting>    def findAllPrevious(self, name=None, attrs={}, text=None, limit=None,                        **kwargs):        """Returns all items that match the given criteria and appear        before this Tag in the document."""        return self._findAll(name, attrs, text, limit, self.previousGenerator,                           **kwargs)</programlisting>
+        <para>Now go to this link. </para>
+        <para>
+          <ulink url="http://www.crummy.com/software/BeautifulSoup/documentation.html#findAllPrevious(name,%20attrs,%20text,%20limit,%20**kwargs)%20and%20findPrevious(name,%20attrs,%20text,%20**kwargs)">http://www.crummy.com/software/BeautifulSoup/documentation.html#findAllPrevious(name,%20attrs,%20text,%20limit,%20**kwargs)%20and%20findPrevious(name,%20attrs,%20text,%20**kwargs)</ulink>
+        </para><para>Which of those methods gives you the quickest idea of how to use that particular piece of code? If you had to figure out how to use this XML parsing library and make something in the next ten minutes, which level of documentation do you hope the code would have? </para>
+        <para>Apply the same thinking to the processes and proceedings of a FOSS community.  If you had to find out in the next ten minutes who had done a particular commit to the code in version control and why they did it, you would want the project to use tools and processes taught in this book.  Any time you want to understand why a page in Wikipedia is edited a certain way, the <emphasis>history</emphasis> and <emphasis>discussion</emphasis> buttons reveal a rich level of information and interaction that are the backbone of what makes it a useful and reliable source:</para><itemizedlist>
+          <listitem>
+            <para>
+              <ulink url="http://en.wikipedia.org/w/index.php?title=Software_documentation&amp;limit=500&amp;action=history"> History of the Wikipedia page on 'software documentation'</ulink>
+            </para>
+          </listitem><listitem>
+            <para>
+              <ulink url="http://en.wikipedia.org/wiki/Talk:Software_documentation"> Discussion or <emphasis>talk</emphasis> page on 'software documentation'</ulink>
+            </para>
+          </listitem><listitem>
+            <para>
+              <ulink url="http://en.wikipedia.org/w/index.php?title=Talk:Software_documentation&amp;action=history"> History of 'Talk:Software_documentation'</ulink>
+            </para>
+          </listitem>
+        </itemizedlist><para>
+          <ulink url="http://en.wikipedia.org/wiki/Software_documentation"> According to Wikipedia</ulink>, documentation "is written text that accompanies computer software. It either explains how it operates or how to use it."  For software engineering purposes, operate/use includes manipulating the source code as well as using the application. Documentation is a sanity-preserving tool for users of and potential contributors to your project, including your future self ... and perhaps your future boss or coworker. </para><para>In FOSS projects, documentation is a way of life.  It is more than developer documentation in code and README files.  Practicing the kind of radical transparency that makes FOSS successful means all of these things and more: </para>
+        <itemizedlist>
+          <listitem>
+            <para> If your code is poorly commented and opaque, people know and tell you; </para>
+          </listitem><listitem>
+            <para> When ideas that become decisions are documented throughout the entire discussion, everyone can see and understand the logic; these ideas are: </para>
+          </listitem><listitem>
+            <para> You can share the burden of documentation with fellow developers, making lighter work for all; </para>
+          </listitem><listitem>
+            <para> The extra effort of documenting meetings and proceedings pays off many, many times over when: </para>
+          </listitem>
+        </itemizedlist><para>There is also content written to document an event, such as notes for a class or technical conference, or minutes from the proceedings of a meeting.  In open source projects, similar tools and processes are used in this type of documenting.  Keeping transparent proceedings of meetings and similar events is a useful skill for FOSS developers. </para>
+        <para>At the end of this chapter you should be able to: </para>
+        <orderedlist numeration="arabic">
+          <listitem>
+            <para>
+              <ulink url="https://www.theopensourceway.org/wiki/Stuff_everyone_knows_and_forgets_anyway#Turn_annoying_newbies_in_to_instant_contributors_with_the_power_of_To_Document"> Use documentation as a way to become immediately useful as a project newcomer</ulink>
+            </para>
+          </listitem><listitem>
+            <para> Document your project in a way that encourages other people to discover, use, and contribute to it. <itemizedlist>
+                <listitem>
+                  <para> Follow a good methodology for technical writing. </para>
+                </listitem><listitem>
+                  <para> Write good commit log messages. </para>
+                </listitem><listitem>
+                  <para> Document your code and other FOSS work as you do it. </para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem><listitem>
+            <para> Engage in an open collaboration on documentation, whether in source code or on a wiki. </para>
+          </listitem><listitem>
+            <para> Participate as part of a community in documenting a proceeding or event. </para>
+          </listitem><listitem>
+            <para> Explain the value of documentation to open source engineering. </para>
+          </listitem>
+        </orderedlist><para>Kat Walsh: "Not just encourage other people to discover and use it themselves, but make them want to share it with other people and go 'hey, look how good this is.'" </para>
+        <para>Every technical effort has a requirement for documentation.  The project's ability to make writing, editing, and publishing as easy as possible is the main key to attracting and retaining contributors. </para>
+        <para>
+          <ulink url="http://www.dria.org/wordpress/archives/2006/03/15/401/"> According to Mozilla</ulink>, developer contributions to documentation greatly increased along with a new community of writers, editors, and translators.  This all resulted from reducing the barriers to success that made even experienced developers too frustrated to document properly. </para><section>
+          <sectioninfo>
+            <title>Exercise - Practice good code commenting </title>
+          </sectioninfo><para>Throughout all the exercises in this book practice doing good commenting and documentation for your coding efforts. </para>
+          <orderedlist numeration="arabic">
+            <listitem>
+              <para> Write thorough comments in all your source code. </para>
+            </listitem><listitem>
+              <para> Trade sources with another student and attempt to make sense of the source from the documentation alone. </para>
+            </listitem><listitem>
+              <para> Write at least one wiki page of developer documentation for each program you write or work on: <itemizedlist>
+                  <listitem>
+                    <para> Share this burden with other students working on the same code base </para>
+                  </listitem><listitem>
+                    <para> Contribute this to any FOSS projects you work on for this class </para>
+                  </listitem>
+                </itemizedlist>
+              </para>
+            </listitem>
+          </orderedlist>
+        </section>
+      </section><section>
+        <sectioninfo>
+          <title>Common tools and processes for open source documentation </title>
+        </sectioninfo><para>Documentation requires tools that are very similar to those used in coding. </para>
+        <itemizedlist>
+          <listitem>
+            <para> Editor to write content in. </para>
+          </listitem><listitem>
+            <para> Means to collaborate with other writers and technical contributors. </para>
+          </listitem><listitem>
+            <para> Version control, as explained in <ulink url="https://www.theopensourceway.org/w/index.php?title=Getting_the_Code">Getting the Code</ulink>(XREF). </para>
+          </listitem><listitem>
+            <para> Means to markup, build, and publish draft and finished documents. </para>
+          </listitem><listitem>
+            <para> Processes to use these tools as part of a collaboration. </para>
+          </listitem>
+        </itemizedlist><para>Typical thinking about documentation focuses on certain parts of the tools, such as the editor (Emacs, Vi, etc.) or the markup-build-publish tools (XHTML, TeX, Docbook, etc.).  A content management system (CMS) such as Drupal or Wordpress has all of the requirements built in one tool.  The structure of the tooling enforces a loose, strict, or customizable process. </para>
+        <para>For example, Wordpress is a CMS that is focused on one or a group of writers producing content that appears in news fashion on a website.  The tools loosely enforce a process of editing drafts, previewing, categorizing and tagging, organizing by date etc., and scheduling or pushing to publish. </para>
+        <para>For the exercises in this chapter you are going to use a classroom wiki, which simulates the wiki used for an open source project by developers and other content contributors, and also the actual wiki of an open source project you choose to document.  MediaWiki is a commonly used FOSS wiki tool and is used in these exercises to assure clarity and consistency.  For other wiki tools, you may need to make changes for the syntax or tool flow. </para>
+        <section>
+          <sectioninfo>
+            <title>Exercise - Document your team </title>
+          </sectioninfo><para>In this exercise you learn how to use a wiki, including page creation and editing. </para>
+          <para>Requirements: </para>
+          <itemizedlist>
+            <listitem>
+              <para> Class wiki web service. </para>
+            </listitem><listitem>
+              <para> Wiki account or ability to make one. <itemizedlist>
+                  <listitem>
+                    <para> Ideally an open source project makes it clear how to get edit access to the documentation tools, which may include a wiki.  For this class, the instructor may have created your basic account on a classroom wiki instance. </para>
+                  </listitem>
+                </itemizedlist>
+              </para>
+            </listitem><listitem>
+              <para> Internet Relay Chat (IRC) room with class attending. <itemizedlist>
+                  <listitem>
+                    <para> IRC is a main tool in open source development; chat logs form the basis for documentation and other knowledge.  You need to get comfortable working in an IRC environment. </para>
+                  </listitem><listitem>
+                    <para> Read <ulink url="http://www.instructables.com/id/How-to-use-IRC-Internet-Relay-Chat/"> additional online content about chat skills and etiquette</ulink> in advance of class. </para>
+                  </listitem>
+                </itemizedlist>
+              </para>
+            </listitem><listitem>
+              <para> One hour. </para>
+            </listitem>
+          </itemizedlist><orderedlist numeration="arabic">
+            <listitem>
+              <para> Work in collaboration with other members of the class. <itemizedlist>
+                  <listitem>
+                    <para> IRC is preferable to get the full open source experience.  If in the same classroom, work without speaking aloud, only via IRC and the wiki. </para>
+                  </listitem>
+                </itemizedlist>
+              </para>
+            </listitem><listitem>
+              <para> Your goal is to create a wiki page about yourself.  It should include: <itemizedlist>
+                  <listitem>
+                    <para> A brief biography. </para>
+                  </listitem><listitem>
+                    <para> Preferred contact methods and information. </para>
+                  </listitem><listitem>
+                    <para> A list of projects you are working on for this class. </para>
+                  </listitem><listitem>
+                    <para> A list of class sections completed with links to source code, logs, etc. </para>
+                  </listitem>
+                </itemizedlist>
+              </para>
+            </listitem><listitem>
+              <para> However, you may not write any of the content yourself. </para>
+            </listitem><listitem>
+              <para> You must work with one or more classmates to get your page created. </para>
+            </listitem>
+          </orderedlist>
+        </section>
+      </section><section>
+        <sectioninfo>
+          <title>Five steps for technical writing </title>
+        </sectioninfo><para>
+          <emphasis>(Adapted from <ulink url="http://fossdocs.wordpress.com/2009/08/07/creating-technical-documentation-in-five-easy-steps"> Creating technical documentation in five easy steps</ulink> and <ulink url="http://fossdocs.wordpress.com/2009/10/20/magic-waterfalls/"> Magic waterfalls</ulink> under <ulink url="http://creativecommons.org/licenses/by-sa/3.0/"> Creative Commons Attribution-Share Alike 3.0</ulink>.)</emphasis>
+        </para><para>Technical writing is more of a scientific process than an artistic one, which is good news.  You can learn how to do it with a little practice, and there are methods you can follow.  The method in this book is one that is common to good software projects, whether FOSS or not.  It is a <emphasis>waterfall method</emphasis> and applies from large to small efforts, sets of books down to a five paragraph section on a wiki.:</para><orderedlist numeration="arabic">
+          <listitem>
+            <para> Planning &#8211; who is the audience? What are the book&#8217;s goals? </para>
+          </listitem><listitem>
+            <para> Content &#8211; what are the chapters about? Where will you get the information? </para>
+          </listitem><listitem>
+            <para> Writing &#8211; first draft, review, second draft &#8230; </para>
+          </listitem><listitem>
+            <para> Internationalisation/Localisation &#8211; will the book be translated? Into what languages? </para>
+          </listitem><listitem>
+            <para> Review &#8211; what worked? What didn&#8217;t? How will the book be maintained? </para>
+          </listitem>
+        </orderedlist><para>It&#8217;s called a waterfall model because if you start at the top, the results of the first step are used to move into the second step, just like water flowing down a series of steps into a pool. </para>
+        <para>You are at a point in your projects where you need to be producing some documentation. For a budding engineer this process can be a little daunting.  What is the best way to tackle it? The answer is fairly simple &#8211; start at the top of the waterfall, and let the current take you. By answering a few questions in the information plan, you can start creating a content specification. Using the chapter headings and source information you developed in the content spec, you can write the document.  Once it&#8217;s written, you can publish it, once it&#8217;s published you can review it, and then you&#8217;re ready to start again at the top with the next project. </para>
+        <para>Anyone with a scientific or engineering mind can create technical documentation, they might not enjoy it, but they are more than capable of creating it. </para>
+      </section><section>
+        <sectioninfo>
+          <title>Exercise - Plan your technical document </title>
+        </sectioninfo><para>This exercise practices the first steps in the writing process, "Planning" and "Content": </para>
+        <orderedlist numeration="arabic">
+          <listitem>
+            <para> Pick an open source project (or a subset of a project) that you think is interesting. It must be an area that you've never contributed to before. </para>
+          </listitem><listitem>
+            <para> Pick a feature that sounds tantalizing but is not clearly documented. <itemizedlist>
+                <listitem>
+                  <para> This might be part of a user interface, or it might be a programmatic interface (API). </para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem><listitem>
+            <para> Proceed to figure out how to use the feature by documenting its implementation and proper usage.  Focus on getting a task done with one or a few features or interfaces. <itemizedlist>
+                <listitem>
+                  <para> Use the five step waterfall model to plan and define the content </para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+        </orderedlist><para>You use this planning work later in this chapter. </para>
+      </section><section>
+        <sectioninfo>
+          <title>Using documentation as a way to get involved </title>
+        </sectioninfo><para>Documentation has a reputation as being an easy way to begin contributing to a project.  This is more true where the new contributor is already experienced or an expert in the material.  It is much less likely to be true where the project has not considered how to enable good and easy documentation, or the technical content is very high. </para>
+        <para>When developers resist documenting, it is usually around several themes: </para>
+        <orderedlist numeration="arabic">
+          <listitem>
+            <para> The tools are painful to use. </para>
+          </listitem><listitem>
+            <para> Writing is not a principal skill. </para>
+          </listitem><listitem>
+            <para> It takes too much time, usually because of 1 and 2. </para>
+          </listitem>
+        </orderedlist><para>The techniques for creating a successful documentation project that attracts contributions from actual project developers are mirrored answers to these problems: </para>
+        <orderedlist numeration="arabic">
+          <listitem>
+            <para> Focus on making the tools easy to use and aligned with the developer team's preferred methods or built in to the workflow. </para>
+          </listitem><listitem>
+            <para> Turn writing in to a <emphasis>
+                <ulink url="http://en.wikipedia.org/wiki/Brain_dump"> brain dump</ulink>
+              </emphasis>, that is, an outpouring of information without concern to writing standards (grammar, spelling, or structure).</para>
+          </listitem><listitem>
+            <para> Enable non-developers to provide significant contributions by saving the developers from the actual work of writing, which is structuring and editing. </para>
+          </listitem>
+        </orderedlist><para>Dumping down words in to a text editor is not very hard; many developers write copiously in email, for example. The documentor's challenge is finding this content wherever it is (mailing lists, IRC discussions, random wiki pages) and editing it in to something comprehensive that reveals content holes for filling.  The documentation project's success hinges on the ability to restructure rambling content and make all of that accessible to new writing contributors, so they can begin meaningful work from the very start. </para>
+        <para>A metric of this success is when any random experienced contributor is asked a question by a new contributor, and in answering, insists that the answer be documented, for example, on the project wiki using existing templates, etc.  In this way new contributors are turned in to documentors who share the work burden from the existing contributors. </para>
+        <section>
+          <sectioninfo>
+            <title>Exercise - Getting involved </title>
+          </sectioninfo><orderedlist numeration="arabic">
+            <listitem>
+              <para> Take your technical document content plan and prepare it to show to developers and writers involved in the FOSS project. <itemizedlist>
+                  <listitem>
+                    <para> For example, use a personal user namespace on the FOSS project's wiki "User:Username/New_page". </para>
+                  </listitem><listitem>
+                    <para> Alternately, prepare it for inclusion in email. </para>
+                  </listitem>
+                </itemizedlist>
+              </para>
+            </listitem><listitem>
+              <para> Join the documentation mailing list; if there is no specific documentation list, join the main developer list. </para>
+            </listitem><listitem>
+              <para> Send an email with your content plan and any work done so far, request comments on content and where you are getting information from. </para>
+            </listitem><listitem>
+              <para> Proceed with writing a first draft of the content based on your plan and comments received. </para>
+            </listitem><listitem>
+              <para> If you get stuck, return to the mailing list or ask on IRC.  Your earlier introduction and content plan makes this part easier. </para>
+            </listitem><listitem>
+              <para> Return with your next draft to the mailing list, asking for a review and comments.  Provide enough time, several days to a week, and be sure to engage in discussion about the content in a timely way (at least once per day.)  The goal of this step is to improve the content in accuracy </para>
+            </listitem>
+          </orderedlist>
+        </section>
+      </section><section>
+        <sectioninfo>
+          <title>Collaborating on open documentation </title>
+        </sectioninfo><para>When working on content where developers are an important content source, keeping the tooling and processes close to the developers' existing workflow is to the documentor's advantage.  It becomes possible to collaborate directly on content, even in real time.  This section is where all the five steps of the waterfall flow together.  </para>
+        <para>Run through this pattern for a document release: </para>
+        <orderedlist numeration="arabic">
+          <listitem>
+            <para> Writer/team plans content and creates outline. <itemizedlist>
+                <listitem>
+                  <para> Focus on what users want to do with the software. </para>
+                </listitem><listitem>
+                  <para> Create named and empty pages, such as on the wiki, as a structure for content. </para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem><listitem>
+            <para> Interview and write or have expert(s) braindump content in to empty structure. </para>
+          </listitem><listitem>
+            <para> Write and rewrite: <itemizedlist>
+                <listitem>
+                  <para> Writer/editor reorganizes structure and cuts irrelevant content. </para>
+                </listitem><listitem>
+                  <para> Writer edits procedures, rewrites and edits content, noting questions for other writers and developers (in comments, wiki talk pages, etc.). </para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem><listitem>
+            <para> Expert reviews, fixes mistakes, fills out missing parts. <itemizedlist>
+                <listitem>
+                  <para> If anything is missing, cycle just the new content back through to the first step, determining where it goes then back through writing, restructuring, fact checking, and final edit. </para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem><listitem>
+            <para> Full edit and final proof read. </para>
+          </listitem>
+        </orderedlist><para>This is a release. If bugs are found (others notice problems or make suggestions), handle updates to content as per project policy. </para>
+        <para>This process takes advantage of collaboration through extreme visibility.  With each step viewable in real time and as historical data, it makes it possible for an expert, an editor, or a writer to enter the workflow stream at any point and pick up the work from there.  The new person can learn what has gone on before, why it has occurred (thanks to explanations in content save comments), and find a place to begin contributing very quickly. </para>
+        <para>The process also allows existing contributors to enter and leave the process easily.  For example, a contributor can go on vacation for several weeks.  The work continues in her absence, and when she returns, she can enter the workflow in any of the roles she is prepared for. </para>
+        <section>
+          <sectioninfo>
+            <title>Exercise - Collaborating on a small document </title>
+          </sectioninfo><para>Work with at least one other person.  For this lesson you need: </para>
+          <itemizedlist>
+            <listitem>
+              <para> A working wiki instance. </para>
+            </listitem><listitem>
+              <para> A topic, either real or imagined for the exercise. </para>
+            </listitem>
+          </itemizedlist><para>It is possible to do this exercise as, for example, a series of email exchanges.  The reason for using the wiki is to connect with other essentials of FOSS engineering:  central collaboration, version control, and full visibility.  For example, the technical expert can watch edits occur as they are saved to a wiki page, and use page version control to check what was changed and why. </para>
+          <orderedlist numeration="arabic">
+            <listitem>
+              <para> One person is the technical expert, picking a topic to write about at some length without spending effort with grammar, spelling, and structure.  The other persons are editors and writers; with more than one editor/writer, exchange roles equally throughout the exercise. </para>
+            </listitem><listitem>
+              <para> Waterfall step one and two: <orderedlist numeration="arabic">
+                  <listitem>
+                    <para> The team writes the content plan. </para>
+                  </listitem>
+                </orderedlist>
+              </para>
+            </listitem><listitem>
+              <para> Waterfall step three: <orderedlist numeration="arabic">
+                  <listitem>
+                    <para> The technical expert writes in to the raw structure as quickly as possible, focusing on technical accuracy and completion of information.  Do not worry about clarity to non-experts, for example.  This step in the exercise expects that the expert leaves gaps of information or understanding. </para>
+                  </listitem><listitem>
+                    <para> The first writer passes through this content, restructuring, resolving grammar and spelling mistakes, and noting (in comments or the wiki talk page) any questions or points about understanding/clarity of the content.  This editor should not rewrite any content beyond simple grammar fixes. </para>
+                  </listitem><listitem>
+                    <para> The first writer then reads through the content, rewriting for clarity, and drawing clear circles around the holes in the content.  Holes may be assumptions the expert made about reader understanding, or steps missing in a process, for example.  The writer also attempts to gain expertise through the reading; rewriting attempts should show this expertise gain, which helps the technical expert when they reappear. </para>
+                  </listitem><listitem>
+                    <para> At this point, other writers can intervene, collaborate directly, or do a second rewriting session. </para>
+                  </listitem><listitem>
+                    <para> The expert, who may have been watching and commenting on the edit stream as it occurred, enters at the end for a final review.  In particular, the expert is doing the <emphasis>technical edit</emphasis>, which ensures that the facts are correct.  (In practice, this role can be provided by another expert, so experts can share technical editing of each other's content.)</para>
+                  </listitem><listitem>
+                    <para> Do a final proofread of the document. </para>
+                  </listitem><listitem>
+                    <para> Publish first version in original language. </para>
+                  </listitem>
+                </orderedlist>
+              </para>
+            </listitem><listitem>
+              <para> Waterfall step four: <orderedlist numeration="arabic">
+                  <listitem>
+                    <para> If the project has localization (l10n) or translation guidelines, follow those.  You may need to interact with a translation team, for example, or write the document in its final form in to a tool or format for translation. </para>
+                  </listitem>
+                </orderedlist>
+              </para>
+            </listitem><listitem>
+              <para> Waterfall step five: <orderedlist numeration="arabic">
+                  <listitem>
+                    <para> Review with developers and other FOSS project members about the process and content. </para>
+                  </listitem><listitem>
+                    <para> Incorporate the review results in to a plan for the next version of the document. </para>
+                  </listitem>
+                </orderedlist>
+              </para>
+            </listitem>
+          </orderedlist><para>If your document is used again, for example when the software changes and the documentation is rewritten, a new expertise content dump and other needs can cause the writing to become unclear, gain errors, or break established voice, patterns, or structure.  At that point, return with the work to the top of the waterfall. </para>
+        </section>
+      </section><section>
+        <sectioninfo>
+          <title>Documenting technical and community proceedings </title>
+        </sectioninfo><para>This section is focused on reasons and methods for documenting community proceedings, such as developer conferences or technical steering group meetings. </para>
+        <para>These are the skills used by standards organizations around the world, and are very similar when used as part of the open source development model.  Where open source projects might differ on the specifics of how something is done (the tools), the reasons why and the type of information captured and revealed are common across free communities. </para>
+        <para>The principles are: </para>
+        <itemizedlist>
+          <listitem>
+            <para> Document as much as possible of what occurs in any community meetings and interactions. </para>
+          </listitem><listitem>
+            <para> Use as much automagic as possible, such as IRC logging bots. </para>
+          </listitem><listitem>
+            <para> Choose open, common, collaborative tools; not just "a wiki" but "MediaWiki, the popular and well-understood wiki system". </para>
+          </listitem><listitem>
+            <para> Use these tools in real time during the proceedings. <itemizedlist>
+                <listitem>
+                  <para> For example, the Gobby text editor is an open source tool for simultaneous real-time editing/writing of a document between two or more people on separate systems across a network. </para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+        </itemizedlist><section>
+          <sectioninfo>
+            <title>Exercise - Document proceedings </title>
+          </sectioninfo><para>This exercise lasts throughout the class session.  It is best done early in the year to gain full benefit of the documentation that results. </para>
+          <orderedlist numeration="arabic">
+            <listitem>
+              <para> Create a page on the class wiki that lists each class session by date. </para>
+            </listitem><listitem>
+              <para> For each date, assign one or more persons to be the documenter for that day. <itemizedlist>
+                  <listitem>
+                    <para> Depending on class size and session length, you may want to have several students take turns during a single class session. </para>
+                  </listitem>
+                </itemizedlist>
+              </para>
+            </listitem><listitem>
+              <para> The documenter has the job of transcribing the proceedings directly in to a wiki page named for the class session, e.g. <emphasis>Open Source 101 - YYYY-MM-DD session notes</emphasis>.<itemizedlist>
+                  <listitem>
+                    <para> Make sure to use proper wiki syntax, categorization, etc. </para>
+                  </listitem><listitem>
+                    <para> Cross-link to other information, such as the instructor's published lecture notes, rather than rewriting everything.  Use URLs to cite and reference. </para>
+                  </listitem><listitem>
+                    <para> Take notes of what other students ask and discuss. </para>
+                  </listitem><listitem>
+                    <para> Focus on getting down the facts, save editing and spell checking for later. </para>
+                  </listitem><listitem>
+                    <para> It may be hard to participate in the discussion while being a documenter. </para>
+                  </listitem><listitem>
+                    <para> Take turns if it helps, especially at the beginning. </para>
+                  </listitem><listitem>
+                    <para> Take pictures of information in the room, such as whiteboard/blackboard work. </para>
+                  </listitem>
+                </itemizedlist>
+              </para>
+            </listitem><listitem>
+              <para> As that page is created, it becomes the canonical node for that particular class session.  For example, additional content or homework for that session could be linked from that page, etc. </para>
+            </listitem>
+          </orderedlist><para>A bonus exercise is this: </para>
+          <orderedlist numeration="arabic">
+            <listitem>
+              <para> Use the classroom IRC to log a discussion during the class.  The documenter writes notes directly in to IRC.  Other class members can annotate in this back channel as they proceed. </para>
+            </listitem><listitem>
+              <para> Convert the log to HTML or otherwise make it available for linking from the wiki page. </para>
+            </listitem><listitem>
+              <para> On the wiki page, include a summary of the session and any other relevant meta-data, such as links to lecture notes, source code, test instances, and so forth. </para>
+            </listitem>
+          </orderedlist>
+        </section>
+      </section><section>
+        <sectioninfo>
+          <title>References and further reading </title>
+        </sectioninfo><itemizedlist>
+          <listitem>
+            <para>
+              <ulink url="http://fossdocs.wordpress.com/2009/10/20/magic-waterfalls/">http://fossdocs.wordpress.com/2009/10/20/magic-waterfalls/</ulink>
+            </para>
+          </listitem><listitem>
+            <para>
+              <ulink url="http://fossdocs.wordpress.com/2009/08/07/creating-technical-documentation-in-five-easy-steps">http://fossdocs.wordpress.com/2009/08/07/creating-technical-documentation-in-five-easy-steps</ulink>
+            </para>
+          </listitem>
+        </itemizedlist>
+      </section>
+    </section>
+  </article>
+</chapter>
